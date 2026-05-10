@@ -1,0 +1,15 @@
+{
+  "hash": "30062e300a4cb0ea0da77d7a86c3f888",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Getting started\"\n---\n\n## Installation\n\n### From CRAN\n\nIf/when the package is on CRAN:\n\n```r\ninstall.packages(\"VedicDateTime\")\n```\n\n### Development version from GitHub\n\n```r\n# install.packages(\"remotes\")\nremotes::install_github(\"<OWNER>/<REPO>\")\n```\n\nReplace `<OWNER>/<REPO>` with your GitHub repository.\n\n## Core concepts\n\nVedicDateTime focuses on converting a **Gregorian date-time** (or **Julian Day Number**) to Vedic calendar entities.\n\nMost computations require:\n\n- **Time**: Gregorian date-time (or already-computed Julian day)\n- **Location**: latitude, longitude\n- **Timezone**: often represented as UTC offset (e.g., 5.5)\n\n## Typical workflow\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(VedicDateTime)\n\n# 1) Convert Gregorian date-time to Julian day number\n# jd <- gregorian_to_jd(\"2023-10-24 12:00:00\", tz = \"UTC\")\n\n# 2) Define place (latitude, longitude, timezone)\n# place <- list(latitude = 19.0760, longitude = 72.8777, timezone = 5.5)\n\n# 3) Compute Panchanga entities\n# tithi(jd, place)\n# vaara(jd, place)\n# nakshatra(jd, place)\n# yoga(jd, place)\n# karana(jd, place)\n```\n:::\n\n\n## Use cases (from the package paper)\n\n- Exploring seasonality in time-series using a lunisolar calendar\n- Modeling holiday effects (e.g., Diwali) when dates shift under the Gregorian calendar\n\n## Troubleshooting\n\n- Ensure your **timezone** matches the location.\n- For reproducible analyses, always record:\n  - input date-time (and timezone)\n  - latitude/longitude\n  - package version\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

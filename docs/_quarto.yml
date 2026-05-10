@@ -1,0 +1,44 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "VedicDateTime"
+  description: "An R package to implement the Vedic (lunisolar) calendar system and convert Gregorian/Julian dates to Vedic calendar entities."
+  site-url: ""   # optional; set after you have the final GitHub Pages URL or custom domain
+  repo-url: ""   # TODO: set GitHub repo URL
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: getting-started.qmd
+        text: Getting started
+      - href: reference.qmd
+        text: Reference
+      - href: articles.qmd
+        text: Articles
+      - href: changelog.qmd
+        text: Changelog
+      - href: about.qmd
+        text: About
+    right:
+      - icon: github
+        href: ""   # TODO: set GitHub repo URL
+  page-footer:
+    left: "© {year} VedicDateTime contributors"
+    right:
+      - text: "License: GPL-3"
+        href: about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-copy: true
+    link-external-icon: true
+    link-external-newwindow: true
+
+execute:
+  freeze: auto
+  eval: false

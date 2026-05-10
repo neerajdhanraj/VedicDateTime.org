@@ -1,0 +1,81 @@
+---
+title: "VedicDateTime"
+subtitle: "An R package to implement the Vedic (lunisolar) calendar system"
+---
+
+::: {.hero}
+
+# VedicDateTime
+
+**VedicDateTime** is an open-source R package that implements key components of the **Vedic calendar (lunisolar)** and provides conversions from **Gregorian date-time** (or **Julian Day Number**) to Vedic calendar entities.
+
+The motivation is that many phenomena—especially in **time-series analysis**—can be influenced by both **solar** and **lunar** cycles. The package paper presents VedicDateTime and demonstrates two applied case studies using the package.
+
+[Get started](getting-started.qmd){.btn .btn-primary}
+[Reference](reference.qmd){.btn .btn-secondary}
+
+:::
+
+## What does the package compute?
+
+VedicDateTime implements the core parts of **Panchanga** (“five arms” of the Vedic calendar):
+
+- **Tithi** — lunar day (phase-based)
+- **Vaara** — weekday
+- **Nakshatra** — constellation segment based on the moon’s position
+- **Yoga** — derived from sun + moon longitudes
+- **Karana** — half-tithi
+
+The package also includes additional related entities and utilities (see [Reference](reference.qmd)), such as:
+
+- sunrise/sunset, moonrise/moonset
+- solar/lunar longitudes
+- rashi, lagna, masa, ritu, samvatsara
+- Gregorian ↔ Julian day conversion helpers
+
+## Why a lunisolar calendar?
+
+Calendar systems can be **solar**, **lunar**, or **lunisolar**. The Gregorian calendar is a solar calendar and serves as a modern standard. However, Vedic calendars are lunisolar and can be useful when the analysis depends on the dynamics of both the sun and the moon.
+
+The VedicDateTime paper motivates use in **calendar seasonality** and **moving-holiday effects** (e.g., festivals whose timing shifts under the Gregorian calendar).
+
+## Quick example (from the paper)
+
+Below is an example shown in the package paper (note: code is displayed; it is not executed when building this site).
+
+```r
+# Julian day number
+jd <- 2459778
+
+# Latitude, Longitude, and timezone of the location
+place <- c(15.34, 75.13, +5.5)
+
+tithi(jd, place)
+#> [1] 20 20 55 35
+```
+
+Interpretation (as explained in the paper):
+
+- The first number is the **tithi index** (there are 30 tithis).
+- The remaining values indicate the **ending time** (hour, minute, second) for that tithi.
+
+## Scope and outputs
+
+Many functions return compact numeric vectors that include:
+
+- an **index** (e.g., which tithi/nakshatra/yoga)
+- the **end time** for the current entity (hour/minute/second)
+
+In some situations, **two entities can occur on one date**, and the output may include both (e.g., two tithis with their end times). The paper also notes handling of skipped/leap cases.
+
+## Citation
+
+If you use VedicDateTime in academic work, please cite:
+
+> Bokde, N. D., Patil, P. K., Sengupta, S., Sawant, M., & Feijóo-Lorenzo, A. E. (2023). *VedicDateTime: An R package to implement Vedic calendar system*. Multimedia Tools and Applications. https://doi.org/10.1007/s11042-023-16553-w
+
+## Links (add your real URLs)
+
+- GitHub repository: `TODO`
+- CRAN package page: `TODO`
+- Issues / support: `TODO`

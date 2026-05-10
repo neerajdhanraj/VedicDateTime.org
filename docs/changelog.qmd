@@ -1,0 +1,19 @@
+---
+title: "Changelog"
+---
+
+## How to maintain changes
+
+Recommended:
+
+- Keep a `NEWS.md` file in the R package repo.
+- Copy key entries here, or link directly to GitHub Releases.
+
+## Version note (paper)
+
+The paper includes a “current code version” note (verify the current version in your repository and CRAN page, and keep this page synchronized).
+
+## Links (fill in)
+
+- GitHub Releases: `TODO`
+- CRAN package history: `TODO`

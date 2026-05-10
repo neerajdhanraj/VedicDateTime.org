@@ -1,0 +1,140 @@
+---
+title: "Getting started"
+---
+
+## Installation
+
+### Install from CRAN (recommended)
+
+If VedicDateTime is available on CRAN, install with:
+
+```r
+install.packages("VedicDateTime")
+```
+
+### Install the development version from GitHub
+
+```r
+# install.packages("remotes")
+remotes::install_github("<OWNER>/<REPO>")
+```
+
+Replace `<OWNER>/<REPO>` with your GitHub repository.
+
+---
+
+## Key inputs: time + place
+
+Most VedicDateTime computations use:
+
+1. **A date** expressed as a **Julian Day Number** (JD)
+2. A **place vector** containing:
+   - latitude
+   - longitude
+   - timezone offset
+
+This is stated repeatedly in the paper examples (e.g., `place <- c(15.34, 75.13, +5.5)`).
+
+### Convert Gregorian date → Julian day
+
+The paper describes `gregorian_to_jd()` as the helper to convert a Gregorian date to a Julian day.
+
+```r
+# Example (paper shows this pattern)
+# jd <- gregorian_to_jd(day, month, year)
+```
+
+---
+
+## Your first Panchanga computation
+
+### 1) Tithi
+
+From the paper:
+
+- `tithi(jd, place)` calculates the **tithi** for a given Julian day and place.
+- It determines the tithi at **sunrise**, based on the difference between **lunar and solar longitudes** divided by 12.
+- The ending time is computed using **Inverse Lagrange interpolation** using longitudes at **0.25 day intervals** from sunrise.
+
+Example (from the paper):
+
+```r
+jd <- 2459778
+place <- c(15.34, 75.13, +5.5)
+
+tithi(jd, place)
+#> [1] 20 20 55 35
+```
+
+What the output means:
+
+- first value = tithi index (1..30)
+- next three values = end time (hour, minute, second)
+
+If you see times beyond `24:00`, it indicates a time **past midnight** (next day), as explained in the paper.
+
+### 2) Vaara (weekday)
+
+```r
+vaara(2459778)
+#> [1] 1
+
+get_vaara_name(2459778)
+#> [1] "Ravivar"
+```
+
+### 3) Nakshatra
+
+From the paper, `nakshatra()` is computed from the moon’s position:
+
+- moon’s **sidereal (Nirayana) longitude** is found by subtracting **Ayanamsa** from tropical longitude
+- the paper states the package uses **Lahiri Ayanamsa** and obtains sunrise via **Swiss Ephemeris**
+- end times use **Inverse Lagrange interpolation** with **0.25 day offsets**
+
+Example output shown:
+
+```r
+jd <- 2459778
+place <- c(15.34, 75.13, +5.5)
+
+nakshatra(jd, place)
+#> [1] 25 24 24  1
+```
+
+The paper explains this as nakshatra index + ending time.
+
+### 4) Yoga
+
+The paper notes 27 yogas, calculated from sun and moon longitudes, using a 13°20′ segment size.
+
+```r
+yoga(2459778, c(15.34, 75.13, +5.5))
+#> [1]  5 27 26 12
+```
+
+### 5) Karana
+
+The paper describes karana as half-tithi and notes both “fixed” and “recurring” karanas.
+
+```r
+karana(2459778, c(15.34, 75.13, +5.5))
+#> [1] 39 40
+
+get_karana_name(39, 40)
+#> [1] "Kaulava-Taitila"
+```
+
+---
+
+## Common mistakes
+
+- **Package not installed**: if you see `there is no package called 'VedicDateTime'`, install from CRAN (or GitHub) before running `library(VedicDateTime)`.
+- **Website builds failing**: this website is configured to **not execute** code chunks during rendering (so examples can be shown even if the package is not installed).
+- **Timezone mismatch**: use the correct timezone offset for the chosen latitude/longitude.
+
+---
+
+## Next steps
+
+- Browse the full API list on the [Reference](reference.qmd) page.
+- Add your own vignettes/tutorials under [Articles](articles.qmd).

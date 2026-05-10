@@ -1,0 +1,74 @@
+---
+title: "Articles"
+---
+
+This section expands on the motivations and examples described in the VedicDateTime paper.
+
+## Background: calendar systems and time-series
+
+The paper motivates VedicDateTime by noting that calendars can be **solar**, **lunar**, or **lunisolar**.
+
+- Gregorian calendar: solar (commonly used as a modern time reference)
+- Vedic calendar: lunisolar (based on both sun and moon motions)
+
+A key idea in the paper is that some natural and social processes can exhibit patterns aligned with lunar and solar cycles, and that using a lunisolar calendar can sometimes make those patterns easier to model.
+
+## Panchanga (five arms)
+
+The paper uses the term **Panchanga** (five arms):
+
+1. Tithi (lunar day)
+2. Vaara (weekday)
+3. Nakshatra (constellation segment)
+4. Yoga
+5. Karana (half-tithi)
+
+VedicDateTime implements these entities and provides conversions from Gregorian/Julian dates.
+
+---
+
+## Case study 1 — Calendar seasonality in economic output
+
+The paper presents a case study on **India’s Index of Industrial Production (IIP)** to illustrate “calendar seasonality” effects.
+
+High-level workflow described:
+
+1. Start with a time series indexed by Gregorian dates.
+2. Convert dates to Vedic calendar entities using VedicDateTime.
+3. Analyze seasonality (the paper discusses decomposition approaches and comparisons).
+
+**TODO (recommended):** add a reproducible notebook/vignette that:
+
+- downloads the IIP dataset (or uses a sample)
+- shows the exact conversion steps using your current package API
+- compares a Gregorian-seasonality model vs a Vedic-calendar feature model
+
+---
+
+## Case study 2 — Diwali regressors (moving holiday effects)
+
+The paper also discusses Diwali as an example of a **moving festival** whose Gregorian timing shifts year-to-year.
+
+High-level workflow described:
+
+1. Identify Diwali dates and/or Vedic-calendar markers.
+2. Create regressors (indicator variables) around the festival period.
+3. Fit a time-series model / seasonal adjustment approach.
+
+The motivation is that such effects can be hard to capture with fixed Gregorian calendar features alone.
+
+**TODO (recommended):** add a worked example showing how to construct Diwali regressors using:
+
+- `tithi()` / `masa()` or a festival-date helper (if present)
+- a chosen modeling approach (e.g., ARIMA + regressors)
+
+---
+
+## Suggested tutorials to add
+
+- “Compute Panchanga for any location”
+- “Batch convert an entire data frame of dates”
+- “Create seasonal features: tithi / nakshatra / yoga”
+- “Moving-holiday regressors (Diwali) for time-series models”
+
+If you share your preferred API design for batch conversion (vectorized vs data-frame), I can draft these as full pages with example code.

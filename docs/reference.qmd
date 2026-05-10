@@ -1,0 +1,148 @@
+---
+title: "Reference"
+---
+
+This page summarizes the main functions described in the VedicDateTime paper. Function names below reflect the paper’s Tables and listings.
+
+> Note: Argument details may vary by package version; treat this page as a high-level guide and prefer `?function_name` in R for authoritative help.
+
+## Core pattern
+
+Many functions follow the pattern:
+
+- Input:
+  - `jd` — Julian Day Number
+  - `place` — numeric vector: `c(latitude, longitude, timezone)`
+- Output:
+  - an index (which entity)
+  - ending time as `(hour, minute, second)`
+
+The paper shows this output style for **tithi**, **nakshatra**, **yoga**, etc.
+
+---
+
+## Panchanga: five core entities
+
+### `tithi()` / `tithis()`
+
+**Purpose:** compute the tithi (lunar day) at sunrise and its end time; may return two tithis in special cases.
+
+Paper example:
+
+```r
+jd <- 2459778
+place <- c(15.34, 75.13, +5.5)
+
+tithi(jd, place)
+#> [1] 20 20 55 35
+```
+
+Related helper:
+
+- `get_tithi_name()` — map tithi number to name.
+
+### `vaara()` / `vaaras()`
+
+**Purpose:** Vedic weekday.
+
+Paper examples:
+
+```r
+vaara(2459778)
+#> [1] 1
+
+get_vaara_name(2459778)
+#> [1] "Ravivar"
+```
+
+### `nakshatra()` / `nakshatras()`
+
+**Purpose:** compute nakshatra from the moon’s sidereal longitude.
+
+Notes from the paper:
+
+- uses **Lahiri Ayanamsa**
+- sunrise/time calculations via **Swiss Ephemeris**
+- end times via **Inverse Lagrange interpolation** with **0.25 day offsets**
+
+Example:
+
+```r
+nakshatra(2459778, c(15.34, 75.13, +5.5))
+#> [1] 25 24 24  1
+```
+
+### `yoga()` / `yogas()`
+
+**Purpose:** 27 yogas derived from sun and moon longitudes (segment size 13°20′).
+
+Example:
+
+```r
+yoga(2459778, c(15.34, 75.13, +5.5))
+#> [1]  5 27 26 12
+```
+
+### `karana()` / `karanas()`
+
+**Purpose:** half-tithi (recurring + fixed karanas).
+
+Example:
+
+```r
+karana(2459778, c(15.34, 75.13, +5.5))
+#> [1] 39 40
+
+get_karana_name(39, 40)
+#> [1] "Kaulava-Taitila"
+```
+
+---
+
+## Additional calendar entities and astronomy helpers
+
+The paper lists additional functions (Table of functions). Commonly used ones include:
+
+### Sun/Moon events
+
+- `sunrise()` / `sunset()`
+- `moonrise()` / `moonset()`
+
+### Longitudes and derived quantities
+
+- `sun_longitude()`
+- `moon_longitude()`
+- `lunar_phase()`
+
+### Zodiac / seasonal entities
+
+- `rashi()` / `rashis()`
+- `lagna()`
+- `masa()` / `masas()`
+- `ritu()` / `ritus()`
+- `samvatsara()` / `samvatsars()`
+
+### New moon
+
+- `new_moon()`
+
+---
+
+## Conversions
+
+- `gregorian_to_jd()` — Gregorian date to Julian day
+- `jd_to_gregorian()` — Julian day to Gregorian date
+
+---
+
+## Utility functions
+
+- `to_dms()`
+- `unwrap_angles()`
+- `inverse_lagrange()`
+
+---
+
+## Recommended: add pkgdown for full API docs
+
+For a “maximum information” function reference, you can generate a **pkgdown** site directly from roxygen documentation. If you want, I can set up pkgdown + GitHub Actions so your reference stays automatically up to date.
