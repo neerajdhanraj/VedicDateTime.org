@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./assets/VedicDateTimeLOGO2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,6 +83,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">VedicDateTime</span>
     </a>
@@ -106,18 +111,35 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./articles.html"> 
-<span class="menu-text">Articles</span></a>
+<span class="menu-text">Tutorials &amp; case studies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./changelog.html"> 
-<span class="menu-text">Changelog</span></a>
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Publication</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="./faq.html"> 
+<span class="menu-text">FAQ</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime"> 
+<span class="menu-text">CRAN</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -135,12 +157,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#what-is-vedicdatetime" id="toc-what-is-vedicdatetime" class="nav-link active" data-scroll-target="#what-is-vedicdatetime">What is VedicDateTime?</a></li>
-  <li><a href="#authors" id="toc-authors" class="nav-link" data-scroll-target="#authors">Authors</a></li>
+  <li><a href="#whats-inside-high-level" id="toc-whats-inside-high-level" class="nav-link" data-scroll-target="#whats-inside-high-level">What’s inside (high level)</a></li>
+  <li><a href="#implementation-notes-paper-summary" id="toc-implementation-notes-paper-summary" class="nav-link" data-scroll-target="#implementation-notes-paper-summary">Implementation notes (paper summary)</a></li>
   <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
-  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
+  <li><a href="#funding-acknowledgement" id="toc-funding-acknowledgement" class="nav-link" data-scroll-target="#funding-acknowledgement">Funding acknowledgement</a></li>
+  <li><a href="#authors-paper" id="toc-authors-paper" class="nav-link" data-scroll-target="#authors-paper">Authors (paper)</a></li>
+  <li><a href="#limitations-future-scope-as-stated-in-the-paper" id="toc-limitations-future-scope-as-stated-in-the-paper" class="nav-link" data-scroll-target="#limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -166,38 +190,70 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="what-is-vedicdatetime" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-vedicdatetime">What is VedicDateTime?</h2>
-<p>VedicDateTime is an R package that implements the <strong>Vedic (lunisolar) calendar system</strong> and provides conversions from <strong>Gregorian dates</strong> (and/or <strong>Julian day numbers</strong>) to Vedic calendar entities.</p>
-<p>It is intended to support research and applied workflows where lunar/solar cycles are relevant.</p>
+<p><strong>VedicDateTime</strong> is an R package for computing entities from the <strong>Vedic (lunisolar) calendar system</strong> and converting between <strong>Gregorian</strong> time and Vedic calendar entities.</p>
+<p>The package is described in the open-access paper:</p>
+<ul>
+<li>https://doi.org/10.1007/s11042-023-16553-w</li>
+</ul>
+<p>Project links:</p>
+<ul>
+<li>CRAN: https://cran.r-project.org/package=VedicDateTime</li>
+<li>GitHub: https://github.com/neerajdhanraj/VedicDateTime</li>
+<li>Website: https://vedicdatetime.org</li>
+</ul>
 </section>
-<section id="authors" class="level2">
-<h2 class="anchored" data-anchor-id="authors">Authors</h2>
-<p>From the package paper:</p>
+<section id="whats-inside-high-level" class="level2">
+<h2 class="anchored" data-anchor-id="whats-inside-high-level">What’s inside (high level)</h2>
+<p>From the paper, VedicDateTime implements the five key Panchanga entities:</p>
+<ul>
+<li>tithi</li>
+<li>vaara</li>
+<li>nakshatra</li>
+<li>yoga</li>
+<li>karana</li>
+</ul>
+<p>…and also provides a broader set of helper functions for related entities such as rashi/lagna/masa/ritu/samvatsara and sunrise/sunset/moonrise/moonset.</p>
+</section>
+<section id="implementation-notes-paper-summary" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-notes-paper-summary">Implementation notes (paper summary)</h2>
+<p>The paper describes algorithmic design choices including:</p>
+<ul>
+<li>computations anchored to <strong>local sunrise</strong> (location-dependent)</li>
+<li>Lahiri Ayanamsa for sidereal corrections</li>
+<li>use of Swiss Ephemeris (via R dependencies) for astronomical computations</li>
+<li>inverse Lagrange interpolation (with 0.25-day offsets) to compute end times</li>
+</ul>
+</section>
+<section id="license" class="level2">
+<h2 class="anchored" data-anchor-id="license">License</h2>
+<p>VedicDateTime is distributed under <strong>GPL-3</strong> (as stated in the paper and in CRAN metadata).</p>
+</section>
+<section id="funding-acknowledgement" class="level2">
+<h2 class="anchored" data-anchor-id="funding-acknowledgement">Funding acknowledgement</h2>
+<p>Early development of this package was funded through <strong>Google Summer of Code (GSoC)</strong> in multiple years.</p>
+</section>
+<section id="authors-paper" class="level2">
+<h2 class="anchored" data-anchor-id="authors-paper">Authors (paper)</h2>
 <ul>
 <li>Neeraj Dhanraj Bokde</li>
 <li>Prajwal Kailasnath Patil</li>
 <li>Saradindu Sengupta</li>
 <li>Manisha Sawant</li>
-<li>Andrés E. Feijóo-Lorenzo</li>
+<li>Andrés E. Feijóo‑Lorenzo</li>
 </ul>
 </section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p>GPL-3 (confirm in your DESCRIPTION / LICENSE files).</p>
-</section>
-<section id="links" class="level2">
-<h2 class="anchored" data-anchor-id="links">Links</h2>
+<section id="limitations-future-scope-as-stated-in-the-paper" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</h2>
+<p>The paper notes future improvements such as:</p>
 <ul>
-<li>GitHub repository: <code>TODO</code></li>
-<li>CRAN: <code>TODO</code></li>
-<li>Paper (DOI): https://doi.org/10.1007/s11042-023-16553-w</li>
+<li>adding <strong>visualization capabilities</strong> for calendar entities</li>
+<li>adding native <strong>R date-time object support</strong> (e.g., S4 classes) for Vedic date-time handling</li>
 </ul>
-</section>
-<section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact</h2>
-<p>Add a preferred contact method:</p>
+<p>If you are using VedicDateTime for research, we recommend recording:</p>
 <ul>
-<li>Issues: GitHub Issues (<code>TODO</code>)</li>
-<li>Email: <code>TODO</code></li>
+<li>package version</li>
+<li>location &amp; timezone assumptions</li>
+<li>input time conventions</li>
 </ul>
 
 
@@ -277,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/neerajdhanraj\.github\.io\/VedicDateTime\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -619,12 +675,22 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./about.html">
-<p>License: GPL-3</p>
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime">
+<p>CRAN</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime">
+<p>GitHub</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./publications.html">
+<p>Publication</p>
 </a>
   </li>  
 </ul>

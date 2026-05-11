@@ -1,0 +1,20 @@
+---
+title: "Changelog"
+---
+
+## Releases
+
+VedicDateTime releases are tracked on CRAN and GitHub.
+
+- CRAN: https://cran.r-project.org/package=VedicDateTime
+- GitHub releases: https://github.com/neerajdhanraj/VedicDateTime/releases
+
+## Recommended workflow
+
+For a clean, complete website:
+
+1. Maintain a `NEWS.md` file in the package repository
+2. Create GitHub Releases for tagged versions
+3. Keep this page short and point users to the authoritative history
+
+If you want, we can automatically pull `NEWS.md` into this website during the build.

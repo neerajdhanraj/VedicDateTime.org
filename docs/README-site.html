@@ -68,6 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./assets/VedicDateTimeLOGO2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -117,6 +118,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">VedicDateTime</span>
     </a>
@@ -141,18 +146,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./articles.html"> 
-<span class="menu-text">Articles</span></a>
+<span class="menu-text">Tutorials &amp; case studies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./changelog.html"> 
-<span class="menu-text">Changelog</span></a>
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Publication</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="./faq.html"> 
+<span class="menu-text">FAQ</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime"> 
+<span class="menu-text">CRAN</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -173,13 +195,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#local-preview" id="toc-local-preview" class="nav-link" data-scroll-target="#local-preview">Local preview</a></li>
   <li><a href="#build" id="toc-build" class="nav-link" data-scroll-target="#build">Build</a></li>
-  <li><a href="#publish-on-github-pages" id="toc-publish-on-github-pages" class="nav-link" data-scroll-target="#publish-on-github-pages">Publish on GitHub Pages</a></li>
-  <li><a href="#future-custom-domain" id="toc-future-custom-domain" class="nav-link" data-scroll-target="#future-custom-domain">Future: Custom domain</a></li>
+  <li><a href="#publish-on-github-pages-project-site" id="toc-publish-on-github-pages-project-site" class="nav-link" data-scroll-target="#publish-on-github-pages-project-site">Publish on GitHub Pages (project site)</a></li>
+  <li><a href="#important-why-your-github-url-may-redirect-to-a-custom-domain" id="toc-important-why-your-github-url-may-redirect-to-a-custom-domain" class="nav-link" data-scroll-target="#important-why-your-github-url-may-redirect-to-a-custom-domain">IMPORTANT: Why your GitHub URL may redirect to a custom domain</a></li>
+  <li><a href="#future-enable-the-custom-domain-vedicdatetime.org-safely" id="toc-future-enable-the-custom-domain-vedicdatetime.org-safely" class="nav-link" data-scroll-target="#future-enable-the-custom-domain-vedicdatetime.org-safely">Future: enable the custom domain (vedicdatetime.org) safely</a></li>
   <li><a href="#deployment-checklist" id="toc-deployment-checklist" class="nav-link" data-scroll-target="#deployment-checklist">Deployment checklist</a></li>
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -203,63 +226,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This renders the site to <code>docs/</code> (configured in <code>_quarto.yml</code>).</p>
 </section>
-<section id="publish-on-github-pages" class="level2">
-<h2 class="anchored" data-anchor-id="publish-on-github-pages">Publish on GitHub Pages</h2>
-<p>Recommended approach for a <em>project site</em>:</p>
+<section id="publish-on-github-pages-project-site" class="level2">
+<h2 class="anchored" data-anchor-id="publish-on-github-pages-project-site">Publish on GitHub Pages (project site)</h2>
 <ol type="1">
-<li>Commit the website source files and the generated <code>docs/</code> folder to your default branch (e.g., <code>main</code>).</li>
+<li>Commit the website source files (this <code>site/</code> folder) and the generated <code>docs/</code> folder to your default branch (e.g., <code>main</code>).</li>
 <li>In GitHub repo → <strong>Settings</strong> → <strong>Pages</strong>:
 <ul>
 <li>Source: <strong>Deploy from a branch</strong></li>
 <li>Branch: <code>main</code></li>
 <li>Folder: <code>/docs</code></li>
 </ul></li>
-<li>Save. GitHub will publish at:
+<li>Save.</li>
+</ol>
+<p>Your project site URL will be:</p>
 <ul>
 <li><code>https://&lt;OWNER&gt;.github.io/&lt;REPO&gt;/</code></li>
-</ul></li>
-</ol>
+</ul>
+<p>For example:</p>
+<ul>
+<li><code>https://neerajdhanraj.github.io/VedicDateTime/</code></li>
+</ul>
 </section>
-<section id="future-custom-domain" class="level2">
-<h2 class="anchored" data-anchor-id="future-custom-domain">Future: Custom domain</h2>
+<section id="important-why-your-github-url-may-redirect-to-a-custom-domain" class="level2">
+<h2 class="anchored" data-anchor-id="important-why-your-github-url-may-redirect-to-a-custom-domain">IMPORTANT: Why your GitHub URL may redirect to a custom domain</h2>
+<p>GitHub Pages redirects to a custom domain if <strong>either</strong> of the following is true:</p>
 <ol type="1">
-<li>Choose a domain, e.g.&nbsp;<code>vedicdatetime.example.com</code>.</li>
+<li><strong>Repo Settings → Pages → Custom domain</strong> is set.</li>
+<li>A <code>CNAME</code> file exists in the <strong>published</strong> site root (for project sites this is typically <code>docs/CNAME</code> on <code>main</code>, or <code>CNAME</code> on the <code>gh-pages</code> branch).</li>
+</ol>
+<p>So, if you want to test on <code>github.io</code> (no redirect):</p>
+<ul>
+<li>Ensure <strong>Custom domain is blank</strong> in Settings → Pages.</li>
+<li>Ensure there is <strong>NO</strong> <code>docs/CNAME</code> committed.</li>
+</ul>
+<p>(Deleting <code>site/CNAME</code> alone is not enough if <code>docs/CNAME</code> was previously committed.)</p>
+</section>
+<section id="future-enable-the-custom-domain-vedicdatetime.org-safely" class="level2">
+<h2 class="anchored" data-anchor-id="future-enable-the-custom-domain-vedicdatetime.org-safely">Future: enable the custom domain (vedicdatetime.org) safely</h2>
+<p>When DNS is ready and you <em>want</em> redirect to your domain:</p>
+<ol type="1">
 <li>In GitHub repo → <strong>Settings</strong> → <strong>Pages</strong> → <strong>Custom domain</strong>:
 <ul>
-<li>Enter your domain and save.</li>
+<li>enter: <code>vedicdatetime.org</code></li>
 </ul></li>
-<li>DNS configuration (typical):
+<li>Create <code>docs/CNAME</code> containing exactly:</li>
+</ol>
+<pre class="text"><code>vedicdatetime.org</code></pre>
+<ol start="3" type="1">
+<li>Add DNS records at your domain provider:</li>
+</ol>
 <ul>
-<li>For a subdomain (<code>vedicdatetime.example.com</code>): create a <strong>CNAME</strong> record pointing to <code>&lt;OWNER&gt;.github.io</code>.</li>
-<li>For an apex domain (<code>example.com</code>): use <strong>A</strong> records to GitHub Pages IPs (see GitHub docs).</li>
-</ul></li>
-<li>Create <code>docs/CNAME</code> containing exactly your domain name on one line.
+<li>Apex domain (<code>@</code>) A records → GitHub Pages IPs:
 <ul>
-<li>Start by copying <code>CNAME.template</code> → <code>docs/CNAME</code> and editing it.</li>
+<li>185.199.108.153</li>
+<li>185.199.109.153</li>
+<li>185.199.110.153</li>
+<li>185.199.111.153</li>
 </ul></li>
-<li>(Recommended) Enable <strong>Enforce HTTPS</strong> in GitHub Pages settings after DNS propagates.</li>
+</ul>
+<ol start="4" type="1">
+<li>After DNS propagates, enable <strong>Enforce HTTPS</strong>.</li>
 </ol>
 </section>
 <section id="deployment-checklist" class="level2">
 <h2 class="anchored" data-anchor-id="deployment-checklist">Deployment checklist</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">Set <code>website.repo-url</code> and the navbar GitHub link in <code>_quarto.yml</code></label></li>
-<li><label><input type="checkbox">Decide whether this is a <strong>project site</strong> (<code>https://&lt;OWNER&gt;.github.io/&lt;REPO&gt;/</code>) or <strong>user/org site</strong> (<code>https://&lt;OWNER&gt;.github.io/</code>)</label></li>
-<li><label><input type="checkbox">Run <code>quarto render</code> and commit the generated <code>docs/</code> folder</label></li>
+<li><label><input type="checkbox">Run <code>quarto render</code></label></li>
+<li><label><input type="checkbox">Copy/update the generated <code>docs/</code> folder in your repository root</label></li>
+<li><label><input type="checkbox">Commit + push</label></li>
 <li><label><input type="checkbox">GitHub → Settings → Pages → Branch: <code>main</code> and folder <code>/docs</code></label></li>
-<li><label><input type="checkbox">Confirm all links work on the published URL</label></li>
+<li><label><input type="checkbox">Hard refresh your browser (<code>Ctrl+F5</code>) if you still see an old version</label></li>
 </ul>
 </section>
 <section id="notes" class="level2">
 <h2 class="anchored" data-anchor-id="notes">Notes</h2>
 <ul>
-<li>Update <code>_quarto.yml</code> with:
-<ul>
-<li><code>website.repo-url</code></li>
-<li>navbar GitHub link</li>
-<li><code>website.site-url</code> (optional but helps with SEO)</li>
-</ul></li>
-<li>Consider adding <strong>pkgdown</strong> for fully auto-generated R function reference.</li>
+<li>This site is configured to <strong>not execute</strong> code blocks during rendering (<code>execute.eval: false</code>), so the website builds even if VedicDateTime is not installed on the build machine.</li>
+<li>Consider adding <strong>pkgdown</strong> later for fully auto-generated R function reference.</li>
 </ul>
 
 
@@ -340,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/neerajdhanraj\.github\.io\/VedicDateTime\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -682,12 +725,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./about.html">
-<p>License: GPL-3</p>
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime">
+<p>CRAN</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime">
+<p>GitHub</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./publications.html">
+<p>Publication</p>
 </a>
   </li>  
 </ul>

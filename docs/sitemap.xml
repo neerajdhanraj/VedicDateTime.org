@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/reference.html</loc>
-    <lastmod>2026-05-07T11:40:32.187Z</lastmod>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/reference.html</loc>
+    <lastmod>2026-05-11T06:59:33.845Z</lastmod>
   </url>
   <url>
-    <loc>/index.html</loc>
-    <lastmod>2026-05-07T11:40:12.148Z</lastmod>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/publications.html</loc>
+    <lastmod>2026-05-11T06:26:42.899Z</lastmod>
   </url>
   <url>
-    <loc>/changelog.html</loc>
-    <lastmod>2026-05-07T11:40:44.390Z</lastmod>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/getting-started.html</loc>
+    <lastmod>2026-05-11T06:28:03.758Z</lastmod>
   </url>
   <url>
-    <loc>/about.html</loc>
-    <lastmod>2026-05-07T11:41:12.879Z</lastmod>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/contributing.html</loc>
+    <lastmod>2026-05-11T06:27:03.957Z</lastmod>
   </url>
   <url>
-    <loc>/articles.html</loc>
-    <lastmod>2026-05-07T11:40:39.143Z</lastmod>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/changelog.html</loc>
+    <lastmod>2026-05-11T06:28:52.811Z</lastmod>
   </url>
   <url>
-    <loc>/getting-started.html</loc>
-    <lastmod>2026-05-07T11:40:21.800Z</lastmod>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/about.html</loc>
+    <lastmod>2026-05-11T06:28:48.247Z</lastmod>
   </url>
   <url>
-    <loc>/README-site.html</loc>
-    <lastmod>2026-05-07T11:44:02.034Z</lastmod>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/articles.html</loc>
+    <lastmod>2026-05-11T06:28:37.901Z</lastmod>
+  </url>
+  <url>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/contact.html</loc>
+    <lastmod>2026-05-11T06:27:08.928Z</lastmod>
+  </url>
+  <url>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/faq.html</loc>
+    <lastmod>2026-05-11T06:26:53.618Z</lastmod>
+  </url>
+  <url>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/index.html</loc>
+    <lastmod>2026-05-11T06:27:39.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://neerajdhanraj.github.io/VedicDateTime/README-site.html</loc>
+    <lastmod>2026-05-11T07:58:14.532Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,102 @@
+---
+title: "Tutorials & case studies"
+---
+
+This section collects longer-form explanations, examples, and the case studies presented in the VedicDateTime paper.
+
+If you are new, start with:
+
+- [Getting started](getting-started.qmd)
+- [Reference](reference.qmd)
+- [Publication](publications.qmd)
+
+---
+
+## Tutorial 1 — Compute Panchanga for a place
+
+The paper demonstrates a common pattern:
+
+1. Convert a Gregorian date to a Julian day (`gregorian_to_jd`) (or start with a JD)
+2. Provide a location as `place <- c(latitude, longitude, timezone_offset)`
+3. Compute Panchanga entities (tithi/vaara/nakshatra/yoga/karana)
+
+Example (paper-inspired, shown earlier):
+
+```r
+place <- c(15.34, 75.13, +5.5)
+
+jd <- 2459778
+
+tithi(jd, place)
+vaara(jd)
+nakshatra(jd, place)
+yoga(jd, place)
+karana(jd, place)
+```
+
+---
+
+## Tutorial 2 — Turn Vedic entities into time-series features
+
+A common approach in time-series analysis is to convert dates into calendar features, e.g.:
+
+- weekday, month, quarter (Gregorian)
+- festival windows (moving holidays)
+
+VedicDateTime enables alternative features such as:
+
+- tithi index
+- nakshatra index
+- yoga index
+- rashi / masa
+
+In practice, you might:
+
+1. Compute the entity index for each observation date
+2. Convert the index to a factor / one-hot encoding
+3. Use these as regressors in a forecasting / regression model
+
+```r
+# Pseudocode sketch (adapt to your workflow)
+# df$tithi <- tithi(df$jd, place)[1]
+# df$nakshatra <- nakshatra(df$jd, place)[1]
+# model <- lm(y ~ factor(tithi) + factor(nakshatra), data = df)
+```
+
+---
+
+## Case study 1 (paper) — Calendar seasonality and economic output
+
+The paper highlights that calendars can have strong effects on economic and social behavior, and argues that modeling purely on the Gregorian calendar can be limiting in settings where multiple festivals and regions interact.
+
+In the case study, the authors discuss India’s **Index of Industrial Production (IIP)** and the idea of calendar seasonality.
+
+Key motivations mentioned:
+
+- In India, multiple regions and multiple religious festivals exist.
+- A single Gregorian calendar representation may be insufficient to model all seasonal components.
+- During Diwali, consumer consumption may be higher while industrial output is often lower.
+
+VedicDateTime is used to convert the time axis and extract additional insights.
+
+---
+
+## Case study 2 (paper) — Diwali regressors (moving festival effects)
+
+The second case study discusses creating regressors around the Diwali period and comparing industrial production patterns pre and post Diwali.
+
+Why this matters:
+
+- Moving holidays create shifting impacts in Gregorian time.
+- Encoding festival timing in a lunisolar calendar can provide more stable features.
+
+---
+
+## Suggested additional examples (we can add next)
+
+If you share 1–2 real datasets you want to feature (or synthetic data is OK), we can add full, reproducible tutorials such as:
+
+- Batch conversion for a whole vector/data frame of dates
+- Plot a time series grouped by tithi/nakshatra to visually inspect seasonality
+- Build Diwali regressors and compare model fit
+

@@ -1,1 +1,1 @@
-Sitemap: /sitemap.xml
+Sitemap: https://neerajdhanraj.github.io/VedicDateTime/sitemap.xml

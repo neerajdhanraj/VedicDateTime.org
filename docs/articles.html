@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Articles – VedicDateTime</title>
+<title>Tutorials &amp; case studies – VedicDateTime</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./assets/VedicDateTimeLOGO2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,6 +118,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">VedicDateTime</span>
     </a>
@@ -106,18 +146,35 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./articles.html" aria-current="page"> 
-<span class="menu-text">Articles</span></a>
+<span class="menu-text">Tutorials &amp; case studies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./changelog.html"> 
-<span class="menu-text">Changelog</span></a>
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Publication</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="./faq.html"> 
+<span class="menu-text">FAQ</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime"> 
+<span class="menu-text">CRAN</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -134,26 +191,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#concepts" id="toc-concepts" class="nav-link active" data-scroll-target="#concepts">Concepts</a>
-  <ul class="collapse">
-  <li><a href="#why-a-lunisolar-calendar" id="toc-why-a-lunisolar-calendar" class="nav-link" data-scroll-target="#why-a-lunisolar-calendar">Why a lunisolar calendar?</a></li>
-  <li><a href="#panchanga-overview" id="toc-panchanga-overview" class="nav-link" data-scroll-target="#panchanga-overview">Panchanga overview</a></li>
-  </ul></li>
-  <li><a href="#case-studies-from-the-vedicdatetime-paper" id="toc-case-studies-from-the-vedicdatetime-paper" class="nav-link" data-scroll-target="#case-studies-from-the-vedicdatetime-paper">Case studies (from the VedicDateTime paper)</a>
-  <ul class="collapse">
-  <li><a href="#time-series-seasonality" id="toc-time-series-seasonality" class="nav-link" data-scroll-target="#time-series-seasonality">1) Time-series seasonality</a></li>
-  <li><a href="#diwali-moving-holiday-effects" id="toc-diwali-moving-holiday-effects" class="nav-link" data-scroll-target="#diwali-moving-holiday-effects">2) Diwali (moving holiday) effects</a></li>
-  </ul></li>
-  <li><a href="#contributing-tutorials" id="toc-contributing-tutorials" class="nav-link" data-scroll-target="#contributing-tutorials">Contributing tutorials</a></li>
+  <li><a href="#tutorial-1-compute-panchanga-for-a-place" id="toc-tutorial-1-compute-panchanga-for-a-place" class="nav-link active" data-scroll-target="#tutorial-1-compute-panchanga-for-a-place">Tutorial 1 — Compute Panchanga for a place</a></li>
+  <li><a href="#tutorial-2-turn-vedic-entities-into-time-series-features" id="toc-tutorial-2-turn-vedic-entities-into-time-series-features" class="nav-link" data-scroll-target="#tutorial-2-turn-vedic-entities-into-time-series-features">Tutorial 2 — Turn Vedic entities into time-series features</a></li>
+  <li><a href="#case-study-1-paper-calendar-seasonality-and-economic-output" id="toc-case-study-1-paper-calendar-seasonality-and-economic-output" class="nav-link" data-scroll-target="#case-study-1-paper-calendar-seasonality-and-economic-output">Case study 1 (paper) — Calendar seasonality and economic output</a></li>
+  <li><a href="#case-study-2-paper-diwali-regressors-moving-festival-effects" id="toc-case-study-2-paper-diwali-regressors-moving-festival-effects" class="nav-link" data-scroll-target="#case-study-2-paper-diwali-regressors-moving-festival-effects">Case study 2 (paper) — Diwali regressors (moving festival effects)</a></li>
+  <li><a href="#suggested-additional-examples-we-can-add-next" id="toc-suggested-additional-examples-we-can-add-next" class="nav-link" data-scroll-target="#suggested-additional-examples-we-can-add-next">Suggested additional examples (we can add next)</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Articles</h1>
+<h1 class="title">Tutorials &amp; case studies</h1>
 </div>
 
 
@@ -170,44 +221,90 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="concepts" class="level2">
-<h2 class="anchored" data-anchor-id="concepts">Concepts</h2>
-<section id="why-a-lunisolar-calendar" class="level3">
-<h3 class="anchored" data-anchor-id="why-a-lunisolar-calendar">Why a lunisolar calendar?</h3>
-<p>Calendar systems can be solar, lunar, or lunisolar. The Vedic calendar is <strong>lunisolar</strong>, derived from the motions of both the sun and the moon, and can be useful when the phenomenon of interest depends on both.</p>
-</section>
-<section id="panchanga-overview" class="level3">
-<h3 class="anchored" data-anchor-id="panchanga-overview">Panchanga overview</h3>
-<p>The “five arms” of the Vedic calendar (Panchanga) commonly refer to:</p>
+<p>This section collects longer-form explanations, examples, and the case studies presented in the VedicDateTime paper.</p>
+<p>If you are new, start with:</p>
 <ul>
-<li>Tithi</li>
-<li>Vaara</li>
-<li>Nakshatra</li>
-<li>Yoga</li>
-<li>Karana</li>
+<li><a href="./getting-started.html">Getting started</a></li>
+<li><a href="./reference.html">Reference</a></li>
+<li><a href="./publications.html">Publication</a></li>
 </ul>
+<hr>
+<section id="tutorial-1-compute-panchanga-for-a-place" class="level2">
+<h2 class="anchored" data-anchor-id="tutorial-1-compute-panchanga-for-a-place">Tutorial 1 — Compute Panchanga for a place</h2>
+<p>The paper demonstrates a common pattern:</p>
+<ol type="1">
+<li>Convert a Gregorian date to a Julian day (<code>gregorian_to_jd</code>) (or start with a JD)</li>
+<li>Provide a location as <code>place &lt;- c(latitude, longitude, timezone_offset)</code></li>
+<li>Compute Panchanga entities (tithi/vaara/nakshatra/yoga/karana)</li>
+</ol>
+<p>Example (paper-inspired, shown earlier):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>jd <span class="ot">&lt;-</span> <span class="dv">2459778</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tithi</span>(jd, place)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">vaara</span>(jd)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">nakshatra</span>(jd, place)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">yoga</span>(jd, place)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">karana</span>(jd, place)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
 </section>
-</section>
-<section id="case-studies-from-the-vedicdatetime-paper" class="level2">
-<h2 class="anchored" data-anchor-id="case-studies-from-the-vedicdatetime-paper">Case studies (from the VedicDateTime paper)</h2>
-<section id="time-series-seasonality" class="level3">
-<h3 class="anchored" data-anchor-id="time-series-seasonality">1) Time-series seasonality</h3>
-<p>The paper demonstrates how converting dates to Vedic entities can support seasonality analysis for natural/observational time series.</p>
-<p><strong>TODO:</strong> Add your specific replication code or link to a vignette/notebook.</p>
-</section>
-<section id="diwali-moving-holiday-effects" class="level3">
-<h3 class="anchored" data-anchor-id="diwali-moving-holiday-effects">2) Diwali (moving holiday) effects</h3>
-<p>The paper also discusses how Gregorian dates can make moving-holiday effects harder to model, motivating alternative calendars.</p>
-<p><strong>TODO:</strong> Add a worked example using your dataset and preferred modeling framework.</p>
-</section>
-</section>
-<section id="contributing-tutorials" class="level2">
-<h2 class="anchored" data-anchor-id="contributing-tutorials">Contributing tutorials</h2>
-<p>If you maintain vignettes (recommended), you can link them here:</p>
+<section id="tutorial-2-turn-vedic-entities-into-time-series-features" class="level2">
+<h2 class="anchored" data-anchor-id="tutorial-2-turn-vedic-entities-into-time-series-features">Tutorial 2 — Turn Vedic entities into time-series features</h2>
+<p>A common approach in time-series analysis is to convert dates into calendar features, e.g.:</p>
 <ul>
-<li>“Computing Panchanga for a location” — <code>TODO</code></li>
-<li>“Batch conversions for a time series” — <code>TODO</code></li>
-<li>“Holiday regressors using Vedic dates” — <code>TODO</code></li>
+<li>weekday, month, quarter (Gregorian)</li>
+<li>festival windows (moving holidays)</li>
+</ul>
+<p>VedicDateTime enables alternative features such as:</p>
+<ul>
+<li>tithi index</li>
+<li>nakshatra index</li>
+<li>yoga index</li>
+<li>rashi / masa</li>
+</ul>
+<p>In practice, you might:</p>
+<ol type="1">
+<li>Compute the entity index for each observation date</li>
+<li>Convert the index to a factor / one-hot encoding</li>
+<li>Use these as regressors in a forecasting / regression model</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudocode sketch (adapt to your workflow)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df$tithi &lt;- tithi(df$jd, place)[1]</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df$nakshatra &lt;- nakshatra(df$jd, place)[1]</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># model &lt;- lm(y ~ factor(tithi) + factor(nakshatra), data = df)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="case-study-1-paper-calendar-seasonality-and-economic-output" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-1-paper-calendar-seasonality-and-economic-output">Case study 1 (paper) — Calendar seasonality and economic output</h2>
+<p>The paper highlights that calendars can have strong effects on economic and social behavior, and argues that modeling purely on the Gregorian calendar can be limiting in settings where multiple festivals and regions interact.</p>
+<p>In the case study, the authors discuss India’s <strong>Index of Industrial Production (IIP)</strong> and the idea of calendar seasonality.</p>
+<p>Key motivations mentioned:</p>
+<ul>
+<li>In India, multiple regions and multiple religious festivals exist.</li>
+<li>A single Gregorian calendar representation may be insufficient to model all seasonal components.</li>
+<li>During Diwali, consumer consumption may be higher while industrial output is often lower.</li>
+</ul>
+<p>VedicDateTime is used to convert the time axis and extract additional insights.</p>
+<hr>
+</section>
+<section id="case-study-2-paper-diwali-regressors-moving-festival-effects" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-2-paper-diwali-regressors-moving-festival-effects">Case study 2 (paper) — Diwali regressors (moving festival effects)</h2>
+<p>The second case study discusses creating regressors around the Diwali period and comparing industrial production patterns pre and post Diwali.</p>
+<p>Why this matters:</p>
+<ul>
+<li>Moving holidays create shifting impacts in Gregorian time.</li>
+<li>Encoding festival timing in a lunisolar calendar can provide more stable features.</li>
+</ul>
+<hr>
+</section>
+<section id="suggested-additional-examples-we-can-add-next" class="level2">
+<h2 class="anchored" data-anchor-id="suggested-additional-examples-we-can-add-next">Suggested additional examples (we can add next)</h2>
+<p>If you share 1–2 real datasets you want to feature (or synthetic data is OK), we can add full, reproducible tutorials such as:</p>
+<ul>
+<li>Batch conversion for a whole vector/data frame of dates</li>
+<li>Plot a time series grouped by tithi/nakshatra to visually inspect seasonality</li>
+<li>Build Diwali regressors and compare model fit</li>
 </ul>
 
 
@@ -287,7 +384,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/neerajdhanraj\.github\.io\/VedicDateTime\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -629,12 +726,22 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./about.html">
-<p>License: GPL-3</p>
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime">
+<p>CRAN</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime">
+<p>GitHub</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./publications.html">
+<p>Publication</p>
 </a>
   </li>  
 </ul>

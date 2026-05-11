@@ -1,0 +1,188 @@
+---
+title: "Reference"
+---
+
+This page is a practical, human-readable guide to the main functions described in the VedicDateTime paper and listed in the CRAN manual.
+
+Authoritative sources:
+
+- CRAN package page: https://cran.r-project.org/package=VedicDateTime
+- GitHub repository: https://github.com/neerajdhanraj/VedicDateTime
+- Paper (open access): https://doi.org/10.1007/s11042-023-16553-w
+
+---
+
+## Core inputs & return style
+
+### Inputs
+
+Many functions use:
+
+- `jd`: **Julian Day Number**
+- `place`: numeric vector `c(latitude, longitude, timezone_offset)`
+
+Example (used in the paper):
+
+```r
+place <- c(15.34, 75.13, +5.5)
+```
+
+### Returns
+
+Several functions return numeric vectors that include:
+
+- an index (which tithi / nakshatra / yoga)
+- an end time encoded as `hour minute second`
+
+The paper notes that times beyond 24:00 indicate after midnight (next day).
+
+---
+
+## Panchanga (five arms)
+
+### tithi()
+
+**Meaning:** lunar day (based on lunar phase).
+
+**Paper summary of computation:**
+
+- compute lunar phase from difference between lunar and solar longitudes at sunrise
+- determine the tithi by dividing by 12
+- compute end time via inverse Lagrange interpolation using longitudes at 0.25-day offsets
+
+**Example from the paper:**
+
+```r
+jd <- 2459778
+place <- c(15.34, 75.13, +5.5)
+
+tithi(jd, place)
+#> [1] 20 20 55 35
+```
+
+Related:
+
+- `tithis()`
+- `get_tithi_name()`
+
+### vaara()
+
+**Meaning:** weekday.
+
+**Paper examples:**
+
+```r
+vaara(2459778)
+#> [1] 1
+
+get_vaara_name(2459778)
+#> [1] "Ravivar"
+```
+
+Related:
+
+- `vaaras()`
+- `get_vaara_name()`
+
+### nakshatra()
+
+**Meaning:** constellation segment based on the moon’s position.
+
+**Paper notes:** uses Lahiri Ayanamsa and sunrise from Swiss Ephemeris; end times via inverse Lagrange interpolation with 0.25-day offsets.
+
+**Example from the paper:**
+
+```r
+nakshatra(2459778, c(15.34, 75.13, +5.5))
+#> [1] 25 24 24  1
+```
+
+Related:
+
+- `nakshatras()`
+- `get_nakshatra_name()`
+
+### yoga()
+
+**Meaning:** 27 yogas (each 13°20′), based on sun + moon sidereal longitudes.
+
+**Example from the paper:**
+
+```r
+yoga(2459778, c(15.34, 75.13, +5.5))
+#> [1]  5 27 26 12
+```
+
+Related:
+
+- `yogas()`
+- `get_yoga_name()`
+
+### karana()
+
+**Meaning:** half-tithi; recurring and fixed karanas.
+
+**Example from the paper:**
+
+```r
+karana(2459778, c(15.34, 75.13, +5.5))
+#> [1] 39 40
+
+get_karana_name(39, 40)
+#> [1] "Kaulava-Taitila"
+```
+
+Related:
+
+- `karanas()`
+- `get_karana_name()`
+
+---
+
+## A larger set of functions (CRAN manual)
+
+The CRAN manual lists additional topics/functions beyond the Panchanga basics. Common categories include:
+
+### Conversions
+
+- `gregorian_to_jd()`
+- `jd_to_gregorian()`
+
+### Astronomical quantities
+
+- `sun_longitude()`
+- `moon_longitude()`
+- `lunar_phase()`
+
+### Rise/set calculations
+
+- `sunrise()` / `sunset()`
+- `moonrise()` / `moonset()`
+
+### Signs / months / seasons / years
+
+- `rashi()` / `rashis()` and `get_rashi_name()`
+- `lagna()` and `get_lagna_name()`
+- `masa()` / `masas()` and `get_masa_name()`
+- `ritu()` / `ritus()` and `get_ritu_name()`
+- `samvatsara()` / `samvatsars()` and `get_samvatsara_name()`
+
+### Utilities
+
+- `to_dms()`
+- `unwrap_angles()`
+- `inverse_lagrange()`
+
+---
+
+## Dependencies
+
+The CRAN metadata indicates the package imports **swephR** (Swiss Ephemeris bindings), consistent with the paper’s discussion.
+
+---
+
+## Next step: full auto-generated function docs (optional)
+
+If you want truly “complete” documentation on the website (argument tables, return values, examples straight from roxygen), the standard approach is to publish a **pkgdown** site.
+
+If you want, I can set up pkgdown + GitHub Actions so your reference stays automatically up to date.
