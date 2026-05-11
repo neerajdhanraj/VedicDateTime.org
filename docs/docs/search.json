@@ -4,35 +4,42 @@
     "href": "reference.html",
     "title": "Reference",
     "section": "",
-    "text": "This page is a practical, human-readable guide to the main functions described in the VedicDateTime paper and commonly used in the package.\nFor definitive documentation, always check:"
+    "text": "This page is a practical, human-readable guide to the main functions described in the VedicDateTime paper and listed in the CRAN manual.\nAuthoritative sources:"
   },
   {
     "objectID": "reference.html#core-inputs-return-style",
     "href": "reference.html#core-inputs-return-style",
     "title": "Reference",
     "section": "Core inputs & return style",
-    "text": "Core inputs & return style\n\nInputs\nMany functions in the paper use:\n\njd: Julian Day Number\nplace: numeric vector c(latitude, longitude, timezone_offset)\n\nExample place:\nplace &lt;- c(15.34, 75.13, +5.5)\n\n\nReturns\nSeveral functions return numeric vectors that include:\n\nan index (which tithi / nakshatra / yoga)\nan end time encoded as hour minute second\n\nThe paper notes that times beyond 24:00 indicate after midnight (next day)."
+    "text": "Core inputs & return style\n\nInputs\nMany functions use:\n\njd: Julian Day Number\nplace: numeric vector c(latitude, longitude, timezone_offset)\n\nExample (used in the paper):\nplace &lt;- c(15.34, 75.13, +5.5)\n\n\nReturns\nSeveral functions return numeric vectors that include:\n\nan index (which tithi / nakshatra / yoga)\nan end time encoded as hour minute second\n\nThe paper notes that times beyond 24:00 indicate after midnight (next day)."
   },
   {
     "objectID": "reference.html#panchanga-five-arms",
     "href": "reference.html#panchanga-five-arms",
     "title": "Reference",
     "section": "Panchanga (five arms)",
-    "text": "Panchanga (five arms)\n\n1) tithi()\nMeaning: lunar day (based on lunar phase).\nPaper summary of computation:\n\ncompute lunar phase from difference between lunar and solar longitudes at sunrise\ndetermine the tithi by dividing by 12\ncompute end time via inverse Lagrange interpolation using longitudes at 0.25-day offsets\n\nExample from the paper:\njd &lt;- 2459778\nplace &lt;- c(15.34, 75.13, +5.5)\n\ntithi(jd, place)\n#&gt; [1] 20 20 55 35\nHelpers:\n\nget_tithi_name() — tithi number → name\n\nRelated:\n\ntithis() — compute multiple tithis across time (see package help)\n\n\n\n2) vaara()\nMeaning: weekday.\nPaper examples:\nvaara(2459778)\n#&gt; [1] 1\n\nget_vaara_name(2459778)\n#&gt; [1] \"Ravivar\"\nRelated:\n\nvaaras()\n\n\n\n3) nakshatra()\nMeaning: constellation segment based on the moon’s position.\nPaper notes: uses Lahiri Ayanamsa and sunrise from Swiss Ephemeris; end times via inverse Lagrange interpolation with 0.25-day offsets.\nExample from the paper:\nnakshatra(2459778, c(15.34, 75.13, +5.5))\n#&gt; [1] 25 24 24  1\nRelated:\n\nget_nakshatra_name()\nnakshatras()\n\n\n\n4) yoga()\nMeaning: 27 yogas (each 13°20′), based on sun + moon sidereal longitudes.\nExample from the paper:\nyoga(2459778, c(15.34, 75.13, +5.5))\n#&gt; [1]  5 27 26 12\nRelated:\n\nget_yoga_name()\nyogas()\n\n\n\n5) karana()\nMeaning: half-tithi; the paper notes recurring and fixed karanas.\nExample from the paper:\nkarana(2459778, c(15.34, 75.13, +5.5))\n#&gt; [1] 39 40\n\nget_karana_name(39, 40)\n#&gt; [1] \"Kaulava-Taitila\"\nRelated:\n\nkaranas()"
+    "text": "Panchanga (five arms)\n\ntithi()\nMeaning: lunar day (based on lunar phase).\nPaper summary of computation:\n\ncompute lunar phase from difference between lunar and solar longitudes at sunrise\ndetermine the tithi by dividing by 12\ncompute end time via inverse Lagrange interpolation using longitudes at 0.25-day offsets\n\nExample from the paper:\njd &lt;- 2459778\nplace &lt;- c(15.34, 75.13, +5.5)\n\ntithi(jd, place)\n#&gt; [1] 20 20 55 35\nRelated:\n\ntithis()\nget_tithi_name()\n\n\n\nvaara()\nMeaning: weekday.\nPaper examples:\nvaara(2459778)\n#&gt; [1] 1\n\nget_vaara_name(2459778)\n#&gt; [1] \"Ravivar\"\nRelated:\n\nvaaras()\nget_vaara_name()\n\n\n\nnakshatra()\nMeaning: constellation segment based on the moon’s position.\nPaper notes: uses Lahiri Ayanamsa and sunrise from Swiss Ephemeris; end times via inverse Lagrange interpolation with 0.25-day offsets.\nExample from the paper:\nnakshatra(2459778, c(15.34, 75.13, +5.5))\n#&gt; [1] 25 24 24  1\nRelated:\n\nnakshatras()\nget_nakshatra_name()\n\n\n\nyoga()\nMeaning: 27 yogas (each 13°20′), based on sun + moon sidereal longitudes.\nExample from the paper:\nyoga(2459778, c(15.34, 75.13, +5.5))\n#&gt; [1]  5 27 26 12\nRelated:\n\nyogas()\nget_yoga_name()\n\n\n\nkarana()\nMeaning: half-tithi; recurring and fixed karanas.\nExample from the paper:\nkarana(2459778, c(15.34, 75.13, +5.5))\n#&gt; [1] 39 40\n\nget_karana_name(39, 40)\n#&gt; [1] \"Kaulava-Taitila\"\nRelated:\n\nkaranas()\nget_karana_name()"
   },
   {
-    "objectID": "reference.html#additional-calendar-entities-from-the-papers-function-table",
-    "href": "reference.html#additional-calendar-entities-from-the-papers-function-table",
+    "objectID": "reference.html#a-larger-set-of-functions-cran-manual",
+    "href": "reference.html#a-larger-set-of-functions-cran-manual",
     "title": "Reference",
-    "section": "Additional calendar entities (from the paper’s function table)",
-    "text": "Additional calendar entities (from the paper’s function table)\nThese functions support broader calendrical and time-series feature engineering workflows.\n\nZodiac / signs\n\nrashi() and get_rashi_name() — moon sign on the zodiac\nlagna() and get_lagna_name() — sun sign on the zodiac\n\n\n\nMonths / seasons / years\n\nmasa() and get_masa_name() — lunar month\nritu() and get_ritu_name() — season (6 ritus)\nsamvatsara() and get_samvatsara_name() — 60-year cycle name\n\n\n\nAstronomical quantities & events\n\nsun_longitude() — solar longitude\nmoon_longitude() — lunar longitude\nsunrise() / sunset() — sunrise/sunset for date + place\nmoonrise() / moonset() — moonrise/moonset for date + place\n\n\n\nConversions\n\ngregorian_to_jd() — Gregorian date → JD (paper notes 00:00 UTC)\njd_to_gregorian() — JD → Gregorian\n\n\n\nUtilities\n\nto_dms()\nunwrap_angles()\ninverse_lagrange()"
+    "section": "A larger set of functions (CRAN manual)",
+    "text": "A larger set of functions (CRAN manual)\nThe CRAN manual lists additional topics/functions beyond the Panchanga basics. Common categories include:\n\nConversions\n\ngregorian_to_jd()\njd_to_gregorian()\n\n\n\nAstronomical quantities\n\nsun_longitude()\nmoon_longitude()\nlunar_phase()\n\n\n\nRise/set calculations\n\nsunrise() / sunset()\nmoonrise() / moonset()\n\n\n\nSigns / months / seasons / years\n\nrashi() / rashis() and get_rashi_name()\nlagna() and get_lagna_name()\nmasa() / masas() and get_masa_name()\nritu() / ritus() and get_ritu_name()\nsamvatsara() / samvatsars() and get_samvatsara_name()\n\n\n\nUtilities\n\nto_dms()\nunwrap_angles()\ninverse_lagrange()"
   },
   {
-    "objectID": "reference.html#want-a-fully-auto-generated-reference",
-    "href": "reference.html#want-a-fully-auto-generated-reference",
+    "objectID": "reference.html#dependencies",
+    "href": "reference.html#dependencies",
     "title": "Reference",
-    "section": "Want a fully auto-generated reference?",
-    "text": "Want a fully auto-generated reference?\nIf you want the website to contain a complete function index and argument tables automatically, the standard R approach is to publish a pkgdown site. We can integrate pkgdown output into this site or publish it alongside it."
+    "section": "Dependencies",
+    "text": "Dependencies\nThe CRAN metadata indicates the package imports swephR (Swiss Ephemeris bindings), consistent with the paper’s discussion."
+  },
+  {
+    "objectID": "reference.html#next-step-full-auto-generated-function-docs-optional",
+    "href": "reference.html#next-step-full-auto-generated-function-docs-optional",
+    "title": "Reference",
+    "section": "Next step: full auto-generated function docs (optional)",
+    "text": "Next step: full auto-generated function docs (optional)\nIf you want truly “complete” documentation on the website (argument tables, return values, examples straight from roxygen), the standard approach is to publish a pkgdown site.\nIf you want, I can set up pkgdown + GitHub Actions so your reference stays automatically up to date."
   },
   {
     "objectID": "publications.html",

@@ -198,21 +198,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#panchanga-five-arms" id="toc-panchanga-five-arms" class="nav-link" data-scroll-target="#panchanga-five-arms">Panchanga (five arms)</a>
   <ul class="collapse">
-  <li><a href="#tithi" id="toc-tithi" class="nav-link" data-scroll-target="#tithi">1) tithi()</a></li>
-  <li><a href="#vaara" id="toc-vaara" class="nav-link" data-scroll-target="#vaara">2) vaara()</a></li>
-  <li><a href="#nakshatra" id="toc-nakshatra" class="nav-link" data-scroll-target="#nakshatra">3) nakshatra()</a></li>
-  <li><a href="#yoga" id="toc-yoga" class="nav-link" data-scroll-target="#yoga">4) yoga()</a></li>
-  <li><a href="#karana" id="toc-karana" class="nav-link" data-scroll-target="#karana">5) karana()</a></li>
+  <li><a href="#tithi" id="toc-tithi" class="nav-link" data-scroll-target="#tithi">tithi()</a></li>
+  <li><a href="#vaara" id="toc-vaara" class="nav-link" data-scroll-target="#vaara">vaara()</a></li>
+  <li><a href="#nakshatra" id="toc-nakshatra" class="nav-link" data-scroll-target="#nakshatra">nakshatra()</a></li>
+  <li><a href="#yoga" id="toc-yoga" class="nav-link" data-scroll-target="#yoga">yoga()</a></li>
+  <li><a href="#karana" id="toc-karana" class="nav-link" data-scroll-target="#karana">karana()</a></li>
   </ul></li>
-  <li><a href="#additional-calendar-entities-from-the-papers-function-table" id="toc-additional-calendar-entities-from-the-papers-function-table" class="nav-link" data-scroll-target="#additional-calendar-entities-from-the-papers-function-table">Additional calendar entities (from the paper’s function table)</a>
+  <li><a href="#a-larger-set-of-functions-cran-manual" id="toc-a-larger-set-of-functions-cran-manual" class="nav-link" data-scroll-target="#a-larger-set-of-functions-cran-manual">A larger set of functions (CRAN manual)</a>
   <ul class="collapse">
-  <li><a href="#zodiac-signs" id="toc-zodiac-signs" class="nav-link" data-scroll-target="#zodiac-signs">Zodiac / signs</a></li>
-  <li><a href="#months-seasons-years" id="toc-months-seasons-years" class="nav-link" data-scroll-target="#months-seasons-years">Months / seasons / years</a></li>
-  <li><a href="#astronomical-quantities-events" id="toc-astronomical-quantities-events" class="nav-link" data-scroll-target="#astronomical-quantities-events">Astronomical quantities &amp; events</a></li>
   <li><a href="#conversions" id="toc-conversions" class="nav-link" data-scroll-target="#conversions">Conversions</a></li>
+  <li><a href="#astronomical-quantities" id="toc-astronomical-quantities" class="nav-link" data-scroll-target="#astronomical-quantities">Astronomical quantities</a></li>
+  <li><a href="#riseset-calculations" id="toc-riseset-calculations" class="nav-link" data-scroll-target="#riseset-calculations">Rise/set calculations</a></li>
+  <li><a href="#signs-months-seasons-years" id="toc-signs-months-seasons-years" class="nav-link" data-scroll-target="#signs-months-seasons-years">Signs / months / seasons / years</a></li>
   <li><a href="#utilities" id="toc-utilities" class="nav-link" data-scroll-target="#utilities">Utilities</a></li>
   </ul></li>
-  <li><a href="#want-a-fully-auto-generated-reference" id="toc-want-a-fully-auto-generated-reference" class="nav-link" data-scroll-target="#want-a-fully-auto-generated-reference">Want a fully auto-generated reference?</a></li>
+  <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
+  <li><a href="#next-step-full-auto-generated-function-docs-optional" id="toc-next-step-full-auto-generated-function-docs-optional" class="nav-link" data-scroll-target="#next-step-full-auto-generated-function-docs-optional">Next step: full auto-generated function docs (optional)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -238,23 +239,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This page is a practical, human-readable guide to the main functions described in the VedicDateTime paper and commonly used in the package.</p>
-<p>For definitive documentation, always check:</p>
+<p>This page is a practical, human-readable guide to the main functions described in the VedicDateTime paper and listed in the CRAN manual.</p>
+<p>Authoritative sources:</p>
 <ul>
-<li>CRAN: https://cran.r-project.org/package=VedicDateTime</li>
-<li>Function help in R: <code>?tithi</code>, <code>?nakshatra</code>, etc.</li>
+<li>CRAN package page: https://cran.r-project.org/package=VedicDateTime</li>
+<li>GitHub repository: https://github.com/neerajdhanraj/VedicDateTime</li>
+<li>Paper (open access): https://doi.org/10.1007/s11042-023-16553-w</li>
 </ul>
 <hr>
 <section id="core-inputs-return-style" class="level2">
 <h2 class="anchored" data-anchor-id="core-inputs-return-style">Core inputs &amp; return style</h2>
 <section id="inputs" class="level3">
 <h3 class="anchored" data-anchor-id="inputs">Inputs</h3>
-<p>Many functions in the paper use:</p>
+<p>Many functions use:</p>
 <ul>
 <li><code>jd</code>: <strong>Julian Day Number</strong></li>
 <li><code>place</code>: numeric vector <code>c(latitude, longitude, timezone_offset)</code></li>
 </ul>
-<p>Example place:</p>
+<p>Example (used in the paper):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="returns" class="level3">
@@ -271,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="panchanga-five-arms" class="level2">
 <h2 class="anchored" data-anchor-id="panchanga-five-arms">Panchanga (five arms)</h2>
 <section id="tithi" class="level3">
-<h3 class="anchored" data-anchor-id="tithi">1) tithi()</h3>
+<h3 class="anchored" data-anchor-id="tithi">tithi()</h3>
 <p><strong>Meaning:</strong> lunar day (based on lunar phase).</p>
 <p><strong>Paper summary of computation:</strong></p>
 <ul>
@@ -285,17 +287,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tithi</span>(jd, place)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 55 35</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Helpers:</p>
-<ul>
-<li><code>get_tithi_name()</code> — tithi number → name</li>
-</ul>
 <p>Related:</p>
 <ul>
-<li><code>tithis()</code> — compute multiple tithis across time (see package help)</li>
+<li><code>tithis()</code></li>
+<li><code>get_tithi_name()</code></li>
 </ul>
 </section>
 <section id="vaara" class="level3">
-<h3 class="anchored" data-anchor-id="vaara">2) vaara()</h3>
+<h3 class="anchored" data-anchor-id="vaara">vaara()</h3>
 <p><strong>Meaning:</strong> weekday.</p>
 <p><strong>Paper examples:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vaara</span>(<span class="dv">2459778</span>)</span>
@@ -306,10 +305,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Related:</p>
 <ul>
 <li><code>vaaras()</code></li>
+<li><code>get_vaara_name()</code></li>
 </ul>
 </section>
 <section id="nakshatra" class="level3">
-<h3 class="anchored" data-anchor-id="nakshatra">3) nakshatra()</h3>
+<h3 class="anchored" data-anchor-id="nakshatra">nakshatra()</h3>
 <p><strong>Meaning:</strong> constellation segment based on the moon’s position.</p>
 <p><strong>Paper notes:</strong> uses Lahiri Ayanamsa and sunrise from Swiss Ephemeris; end times via inverse Lagrange interpolation with 0.25-day offsets.</p>
 <p><strong>Example from the paper:</strong></p>
@@ -317,25 +317,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 25 24 24  1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Related:</p>
 <ul>
-<li><code>get_nakshatra_name()</code></li>
 <li><code>nakshatras()</code></li>
+<li><code>get_nakshatra_name()</code></li>
 </ul>
 </section>
 <section id="yoga" class="level3">
-<h3 class="anchored" data-anchor-id="yoga">4) yoga()</h3>
+<h3 class="anchored" data-anchor-id="yoga">yoga()</h3>
 <p><strong>Meaning:</strong> 27 yogas (each 13°20′), based on sun + moon sidereal longitudes.</p>
 <p><strong>Example from the paper:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yoga</span>(<span class="dv">2459778</span>, <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  5 27 26 12</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Related:</p>
 <ul>
-<li><code>get_yoga_name()</code></li>
 <li><code>yogas()</code></li>
+<li><code>get_yoga_name()</code></li>
 </ul>
 </section>
 <section id="karana" class="level3">
-<h3 class="anchored" data-anchor-id="karana">5) karana()</h3>
-<p><strong>Meaning:</strong> half-tithi; the paper notes recurring and fixed karanas.</p>
+<h3 class="anchored" data-anchor-id="karana">karana()</h3>
+<p><strong>Meaning:</strong> half-tithi; recurring and fixed karanas.</p>
 <p><strong>Example from the paper:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">karana</span>(<span class="dv">2459778</span>, <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 39 40</span></span>
@@ -345,42 +345,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Related:</p>
 <ul>
 <li><code>karanas()</code></li>
+<li><code>get_karana_name()</code></li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="additional-calendar-entities-from-the-papers-function-table" class="level2">
-<h2 class="anchored" data-anchor-id="additional-calendar-entities-from-the-papers-function-table">Additional calendar entities (from the paper’s function table)</h2>
-<p>These functions support broader calendrical and time-series feature engineering workflows.</p>
-<section id="zodiac-signs" class="level3">
-<h3 class="anchored" data-anchor-id="zodiac-signs">Zodiac / signs</h3>
-<ul>
-<li><code>rashi()</code> and <code>get_rashi_name()</code> — moon sign on the zodiac</li>
-<li><code>lagna()</code> and <code>get_lagna_name()</code> — sun sign on the zodiac</li>
-</ul>
-</section>
-<section id="months-seasons-years" class="level3">
-<h3 class="anchored" data-anchor-id="months-seasons-years">Months / seasons / years</h3>
-<ul>
-<li><code>masa()</code> and <code>get_masa_name()</code> — lunar month</li>
-<li><code>ritu()</code> and <code>get_ritu_name()</code> — season (6 ritus)</li>
-<li><code>samvatsara()</code> and <code>get_samvatsara_name()</code> — 60-year cycle name</li>
-</ul>
-</section>
-<section id="astronomical-quantities-events" class="level3">
-<h3 class="anchored" data-anchor-id="astronomical-quantities-events">Astronomical quantities &amp; events</h3>
-<ul>
-<li><code>sun_longitude()</code> — solar longitude</li>
-<li><code>moon_longitude()</code> — lunar longitude</li>
-<li><code>sunrise()</code> / <code>sunset()</code> — sunrise/sunset for date + place</li>
-<li><code>moonrise()</code> / <code>moonset()</code> — moonrise/moonset for date + place</li>
-</ul>
-</section>
+<section id="a-larger-set-of-functions-cran-manual" class="level2">
+<h2 class="anchored" data-anchor-id="a-larger-set-of-functions-cran-manual">A larger set of functions (CRAN manual)</h2>
+<p>The CRAN manual lists additional topics/functions beyond the Panchanga basics. Common categories include:</p>
 <section id="conversions" class="level3">
 <h3 class="anchored" data-anchor-id="conversions">Conversions</h3>
 <ul>
-<li><code>gregorian_to_jd()</code> — Gregorian date → JD (paper notes 00:00 UTC)</li>
-<li><code>jd_to_gregorian()</code> — JD → Gregorian</li>
+<li><code>gregorian_to_jd()</code></li>
+<li><code>jd_to_gregorian()</code></li>
+</ul>
+</section>
+<section id="astronomical-quantities" class="level3">
+<h3 class="anchored" data-anchor-id="astronomical-quantities">Astronomical quantities</h3>
+<ul>
+<li><code>sun_longitude()</code></li>
+<li><code>moon_longitude()</code></li>
+<li><code>lunar_phase()</code></li>
+</ul>
+</section>
+<section id="riseset-calculations" class="level3">
+<h3 class="anchored" data-anchor-id="riseset-calculations">Rise/set calculations</h3>
+<ul>
+<li><code>sunrise()</code> / <code>sunset()</code></li>
+<li><code>moonrise()</code> / <code>moonset()</code></li>
+</ul>
+</section>
+<section id="signs-months-seasons-years" class="level3">
+<h3 class="anchored" data-anchor-id="signs-months-seasons-years">Signs / months / seasons / years</h3>
+<ul>
+<li><code>rashi()</code> / <code>rashis()</code> and <code>get_rashi_name()</code></li>
+<li><code>lagna()</code> and <code>get_lagna_name()</code></li>
+<li><code>masa()</code> / <code>masas()</code> and <code>get_masa_name()</code></li>
+<li><code>ritu()</code> / <code>ritus()</code> and <code>get_ritu_name()</code></li>
+<li><code>samvatsara()</code> / <code>samvatsars()</code> and <code>get_samvatsara_name()</code></li>
 </ul>
 </section>
 <section id="utilities" class="level3">
@@ -393,9 +395,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="want-a-fully-auto-generated-reference" class="level2">
-<h2 class="anchored" data-anchor-id="want-a-fully-auto-generated-reference">Want a fully auto-generated reference?</h2>
-<p>If you want the website to contain a complete function index and argument tables automatically, the standard R approach is to publish a <strong>pkgdown</strong> site. We can integrate pkgdown output into this site or publish it alongside it.</p>
+<section id="dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
+<p>The CRAN metadata indicates the package imports <strong>swephR</strong> (Swiss Ephemeris bindings), consistent with the paper’s discussion.</p>
+<hr>
+</section>
+<section id="next-step-full-auto-generated-function-docs-optional" class="level2">
+<h2 class="anchored" data-anchor-id="next-step-full-auto-generated-function-docs-optional">Next step: full auto-generated function docs (optional)</h2>
+<p>If you want truly “complete” documentation on the website (argument tables, return values, examples straight from roxygen), the standard approach is to publish a <strong>pkgdown</strong> site.</p>
+<p>If you want, I can set up pkgdown + GitHub Actions so your reference stays automatically up to date.</p>
 
 
 </section>
@@ -474,7 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/vedicdatetime\.org");
+        var filterRegex = new RegExp("https:\/\/neerajdhanraj\.github\.io\/VedicDateTime\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

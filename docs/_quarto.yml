@@ -5,7 +5,7 @@ project:
 website:
   title: "VedicDateTime"
   description: "An R package to implement the Vedic (lunisolar) calendar system and convert Gregorian/Julian dates to Vedic calendar entities (Panchanga)."
-  site-url: "https://vedicdatetime.org"
+  site-url: "https://neerajdhanraj.github.io/VedicDateTime/"  # GitHub Pages URL (set custom domain later)
   repo-url: "https://github.com/neerajdhanraj/VedicDateTime"
   repo-actions: [issue]
   favicon: "assets/VedicDateTimeLOGO2.png"

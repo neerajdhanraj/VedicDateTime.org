@@ -2,12 +2,13 @@
 title: "Reference"
 ---
 
-This page is a practical, human-readable guide to the main functions described in the VedicDateTime paper and commonly used in the package.
+This page is a practical, human-readable guide to the main functions described in the VedicDateTime paper and listed in the CRAN manual.
 
-For definitive documentation, always check:
+Authoritative sources:
 
-- CRAN: https://cran.r-project.org/package=VedicDateTime
-- Function help in R: `?tithi`, `?nakshatra`, etc.
+- CRAN package page: https://cran.r-project.org/package=VedicDateTime
+- GitHub repository: https://github.com/neerajdhanraj/VedicDateTime
+- Paper (open access): https://doi.org/10.1007/s11042-023-16553-w
 
 ---
 
@@ -15,12 +16,12 @@ For definitive documentation, always check:
 
 ### Inputs
 
-Many functions in the paper use:
+Many functions use:
 
 - `jd`: **Julian Day Number**
 - `place`: numeric vector `c(latitude, longitude, timezone_offset)`
 
-Example place:
+Example (used in the paper):
 
 ```r
 place <- c(15.34, 75.13, +5.5)
@@ -39,7 +40,7 @@ The paper notes that times beyond 24:00 indicate after midnight (next day).
 
 ## Panchanga (five arms)
 
-### 1) tithi()
+### tithi()
 
 **Meaning:** lunar day (based on lunar phase).
 
@@ -59,15 +60,12 @@ tithi(jd, place)
 #> [1] 20 20 55 35
 ```
 
-Helpers:
-
-- `get_tithi_name()` — tithi number → name
-
 Related:
 
-- `tithis()` — compute multiple tithis across time (see package help)
+- `tithis()`
+- `get_tithi_name()`
 
-### 2) vaara()
+### vaara()
 
 **Meaning:** weekday.
 
@@ -84,8 +82,9 @@ get_vaara_name(2459778)
 Related:
 
 - `vaaras()`
+- `get_vaara_name()`
 
-### 3) nakshatra()
+### nakshatra()
 
 **Meaning:** constellation segment based on the moon’s position.
 
@@ -100,10 +99,10 @@ nakshatra(2459778, c(15.34, 75.13, +5.5))
 
 Related:
 
-- `get_nakshatra_name()`
 - `nakshatras()`
+- `get_nakshatra_name()`
 
-### 4) yoga()
+### yoga()
 
 **Meaning:** 27 yogas (each 13°20′), based on sun + moon sidereal longitudes.
 
@@ -116,12 +115,12 @@ yoga(2459778, c(15.34, 75.13, +5.5))
 
 Related:
 
-- `get_yoga_name()`
 - `yogas()`
+- `get_yoga_name()`
 
-### 5) karana()
+### karana()
 
-**Meaning:** half-tithi; the paper notes recurring and fixed karanas.
+**Meaning:** half-tithi; recurring and fixed karanas.
 
 **Example from the paper:**
 
@@ -136,35 +135,37 @@ get_karana_name(39, 40)
 Related:
 
 - `karanas()`
+- `get_karana_name()`
 
 ---
 
-## Additional calendar entities (from the paper’s function table)
+## A larger set of functions (CRAN manual)
 
-These functions support broader calendrical and time-series feature engineering workflows.
-
-### Zodiac / signs
-
-- `rashi()` and `get_rashi_name()` — moon sign on the zodiac
-- `lagna()` and `get_lagna_name()` — sun sign on the zodiac
-
-### Months / seasons / years
-
-- `masa()` and `get_masa_name()` — lunar month
-- `ritu()` and `get_ritu_name()` — season (6 ritus)
-- `samvatsara()` and `get_samvatsara_name()` — 60-year cycle name
-
-### Astronomical quantities & events
-
-- `sun_longitude()` — solar longitude
-- `moon_longitude()` — lunar longitude
-- `sunrise()` / `sunset()` — sunrise/sunset for date + place
-- `moonrise()` / `moonset()` — moonrise/moonset for date + place
+The CRAN manual lists additional topics/functions beyond the Panchanga basics. Common categories include:
 
 ### Conversions
 
-- `gregorian_to_jd()` — Gregorian date → JD (paper notes 00:00 UTC)
-- `jd_to_gregorian()` — JD → Gregorian
+- `gregorian_to_jd()`
+- `jd_to_gregorian()`
+
+### Astronomical quantities
+
+- `sun_longitude()`
+- `moon_longitude()`
+- `lunar_phase()`
+
+### Rise/set calculations
+
+- `sunrise()` / `sunset()`
+- `moonrise()` / `moonset()`
+
+### Signs / months / seasons / years
+
+- `rashi()` / `rashis()` and `get_rashi_name()`
+- `lagna()` and `get_lagna_name()`
+- `masa()` / `masas()` and `get_masa_name()`
+- `ritu()` / `ritus()` and `get_ritu_name()`
+- `samvatsara()` / `samvatsars()` and `get_samvatsara_name()`
 
 ### Utilities
 
@@ -174,6 +175,14 @@ These functions support broader calendrical and time-series feature engineering 
 
 ---
 
-## Want a fully auto-generated reference?
+## Dependencies
 
-If you want the website to contain a complete function index and argument tables automatically, the standard R approach is to publish a **pkgdown** site. We can integrate pkgdown output into this site or publish it alongside it.
+The CRAN metadata indicates the package imports **swephR** (Swiss Ephemeris bindings), consistent with the paper’s discussion.
+
+---
+
+## Next step: full auto-generated function docs (optional)
+
+If you want truly “complete” documentation on the website (argument tables, return values, examples straight from roxygen), the standard approach is to publish a **pkgdown** site.
+
+If you want, I can set up pkgdown + GitHub Actions so your reference stays automatically up to date.
