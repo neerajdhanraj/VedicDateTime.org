@@ -1,0 +1,15 @@
+{
+  "hash": "8ed1d3399fa7e6431dbfea8ee2114ae7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"VedicDateTime\"\nsubtitle: \"An R package to implement the Vedic (lunisolar) calendar system\"\n---\n\n::: {.hero}\n\n# VedicDateTime\n\nConvert **Gregorian dates** (or **Julian day numbers**) into key **Vedic calendar entities** (Panchanga) in R.\n\n**VedicDateTime** is an open-source framework that implements the Vedic calendar and provides conversions for Gregorian dates, motivated by analyses where both solar and lunar cycles matter (e.g., time-series seasonality and holiday effects).\n\n[Get started](getting-started.qmd){.btn .btn-primary}  \n[Reference](reference.qmd){.btn .btn-secondary}\n\n:::\n\n## Highlights\n\n- Implements core Panchanga components and related entities:\n  - **Tithi** (lunar day), **Vaara** (weekday), **Nakshatra** (constellation), **Yoga**, **Karana** (half-tithi)\n  - Additional entities and helpers used in Vedic calendar computations\n- Converts from **Gregorian date-time** or **Julian day number** to Vedic entities\n- Designed to support research workflows, including **time-series analysis**\n\n## Quick example\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# install.packages(\"VedicDateTime\")  # if/when on CRAN\n# or install from GitHub (see Getting started)\n\nlibrary(VedicDateTime)\n\n# Typical workflow:\n# 1) choose date/time, 2) choose location (latitude, longitude) and timezone\n# 3) compute Panchanga entities\n\n# NOTE: Replace with your actual inputs.\n# jd <- gregorian_to_jd(\"2023-01-01 00:00:00\", tz = \"UTC\")\n# place <- list(latitude = 12.9716, longitude = 77.5946, timezone = 5.5)\n# tithi(jd, place)\n```\n:::\n\n\n## Citation\n\nIf you use VedicDateTime in academic work, please cite the package paper:\n\n> Bokde, N. D., Patil, P. K., Sengupta, S., Sawant, M., & Feijóo-Lorenzo, A. E. (2023). *VedicDateTime: An R package to implement Vedic calendar system*. Multimedia Tools and Applications. https://doi.org/10.1007/s11042-023-16553-w\n\n## Status & badges\n\nAdd these once your repo/CRAN details are final:\n\n- CRAN: `TODO`\n- R-CMD-check: `TODO`\n- Lifecycle: `TODO`\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

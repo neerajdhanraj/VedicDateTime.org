@@ -1,0 +1,35 @@
+{
+  "about.qmd": {
+    "about.html": "6bfd9333"
+  },
+  "articles.qmd": {
+    "articles.html": "f3baed0c"
+  },
+  "changelog.qmd": {
+    "changelog.html": "451e8282"
+  },
+  "getting-started.qmd": {
+    "getting-started.html": "2de2b83b"
+  },
+  "index.qmd": {
+    "index.html": "011ad061"
+  },
+  "README-site.md": {
+    "README-site.html": "13bfb409"
+  },
+  "reference.qmd": {
+    "reference.html": "e858b0ab"
+  },
+  "contact.qmd": {
+    "contact.html": "c9f2566d"
+  },
+  "contributing.qmd": {
+    "contributing.html": "8c540811"
+  },
+  "faq.qmd": {
+    "faq.html": "5c45ad3b"
+  },
+  "publications.qmd": {
+    "publications.html": "a15f0388"
+  }
+}
