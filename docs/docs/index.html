@@ -68,6 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./assets/VedicDateTimeLOGO2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -117,6 +118,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">VedicDateTime</span>
     </a>
@@ -141,18 +146,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./articles.html"> 
-<span class="menu-text">Articles</span></a>
+<span class="menu-text">Tutorials &amp; case studies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./changelog.html"> 
-<span class="menu-text">Changelog</span></a>
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Publication</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="./faq.html"> 
+<span class="menu-text">FAQ</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime"> 
+<span class="menu-text">CRAN</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -169,15 +191,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vedicdatetime" id="toc-vedicdatetime" class="nav-link active" data-scroll-target="#vedicdatetime">VedicDateTime</a></li>
-  <li><a href="#what-does-the-package-compute" id="toc-what-does-the-package-compute" class="nav-link" data-scroll-target="#what-does-the-package-compute">What does the package compute?</a></li>
-  <li><a href="#why-a-lunisolar-calendar" id="toc-why-a-lunisolar-calendar" class="nav-link" data-scroll-target="#why-a-lunisolar-calendar">Why a lunisolar calendar?</a></li>
-  <li><a href="#quick-example-from-the-paper" id="toc-quick-example-from-the-paper" class="nav-link" data-scroll-target="#quick-example-from-the-paper">Quick example (from the paper)</a></li>
-  <li><a href="#scope-and-outputs" id="toc-scope-and-outputs" class="nav-link" data-scroll-target="#scope-and-outputs">Scope and outputs</a></li>
+  <li><a href="#why-vedicdatetime" id="toc-why-vedicdatetime" class="nav-link active" data-scroll-target="#why-vedicdatetime">Why VedicDateTime?</a></li>
+  <li><a href="#what-does-the-package-compute-panchanga-and-related-entities" id="toc-what-does-the-package-compute-panchanga-and-related-entities" class="nav-link" data-scroll-target="#what-does-the-package-compute-panchanga-and-related-entities">What does the package compute? (Panchanga and related entities)</a></li>
+  <li><a href="#quick-examples-from-the-paper" id="toc-quick-examples-from-the-paper" class="nav-link" data-scroll-target="#quick-examples-from-the-paper">Quick examples (from the paper)</a>
+  <ul class="collapse">
+  <li><a href="#example-1-tithi" id="toc-example-1-tithi" class="nav-link" data-scroll-target="#example-1-tithi">Example 1: tithi()</a></li>
+  <li><a href="#example-2-vaara-and-names" id="toc-example-2-vaara-and-names" class="nav-link" data-scroll-target="#example-2-vaara-and-names">Example 2: vaara() and names</a></li>
+  <li><a href="#example-3-nakshatra" id="toc-example-3-nakshatra" class="nav-link" data-scroll-target="#example-3-nakshatra">Example 3: nakshatra()</a></li>
+  </ul></li>
+  <li><a href="#typical-workflow" id="toc-typical-workflow" class="nav-link" data-scroll-target="#typical-workflow">Typical workflow</a></li>
+  <li><a href="#research-and-applications" id="toc-research-and-applications" class="nav-link" data-scroll-target="#research-and-applications">Research and applications</a></li>
   <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
-  <li><a href="#links-add-your-real-urls" id="toc-links-add-your-real-urls" class="nav-link" data-scroll-target="#links-add-your-real-urls">Links (add your real URLs)</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -185,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">VedicDateTime</h1>
-<p class="subtitle lead">An R package to implement the Vedic (lunisolar) calendar system</p>
+<p class="subtitle lead">Vedic calendar (Panchanga) computations for R</p>
 </div>
 
 
@@ -202,38 +228,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="vedicdatetime" class="level1 hero">
+<div class="hero">
+<p><img src="assets/VedicDateTimeLOGO2.png" class="img-fluid" width="120"></p>
+<section id="vedicdatetime" class="level1">
 <h1>VedicDateTime</h1>
-<p><strong>VedicDateTime</strong> is an open-source R package that implements key components of the <strong>Vedic calendar (lunisolar)</strong> and provides conversions from <strong>Gregorian date-time</strong> (or <strong>Julian Day Number</strong>) to Vedic calendar entities.</p>
-<p>The motivation is that many phenomena—especially in <strong>time-series analysis</strong>—can be influenced by both <strong>solar</strong> and <strong>lunar</strong> cycles. The package paper presents VedicDateTime and demonstrates two applied case studies using the package.</p>
-<p><a href="./getting-started.html" class="btn btn-primary">Get started</a> <a href="./reference.html" class="btn btn-secondary">Reference</a></p>
+<p class="lead">
+An open-source R package to compute key entities from the <b>Vedic (lunisolar) calendar</b> and convert <b>Gregorian</b> dates (or <b>Julian Day Numbers</b>) into <b>Panchanga</b> components such as <b>tithi</b>, <b>vaara</b>, <b>nakshatra</b>, <b>yoga</b>, and <b>karana</b>.
+</p>
+<p><strong>CRAN:</strong> https://cran.r-project.org/package=VedicDateTime<br>
+<strong>GitHub:</strong> https://github.com/neerajdhanraj/VedicDateTime<br>
+<strong>Paper:</strong> https://doi.org/10.1007/s11042-023-16553-w</p>
+<p><a href="./getting-started.html" class="btn btn-primary">Install &amp; first steps</a> <a href="./reference.html" class="btn btn-secondary">Browse functions</a></p>
 </section>
-<section id="what-does-the-package-compute" class="level2">
-<h2 class="anchored" data-anchor-id="what-does-the-package-compute">What does the package compute?</h2>
-<p>VedicDateTime implements the core parts of <strong>Panchanga</strong> (“five arms” of the Vedic calendar):</p>
+</div>
+<p><img src="assets/clipboard-2026-05-11_10-09-35.png" class="img-fluid" alt="Screenshot"></p>
+<section id="why-vedicdatetime" class="level2">
+<h2 class="anchored" data-anchor-id="why-vedicdatetime">Why VedicDateTime?</h2>
+<p>Calendar systems used around the world can be <strong>solar</strong>, <strong>lunar</strong>, or <strong>lunisolar</strong>, based on movements of the sun, the moon, or both. The <strong>Gregorian</strong> calendar (solar) is commonly used as a modern time reference for computation.</p>
+<p>The <strong>Vedic calendar</strong> is <strong>lunisolar</strong>. The VedicDateTime paper motivates that a lunisolar calendar can be useful when analyzing activities and time series that may depend on both celestial bodies—especially when studying:</p>
 <ul>
-<li><strong>Tithi</strong> — lunar day (phase-based)</li>
+<li><strong>calendar seasonality</strong> (seasonal patterns tied to cultural and astronomical cycles)</li>
+<li><strong>moving-holiday effects</strong> (e.g., festivals whose Gregorian dates shift year to year)</li>
+</ul>
+<p>VedicDateTime was designed to make these computations accessible as reliable, reproducible R functions.</p>
+</section>
+<section id="what-does-the-package-compute-panchanga-and-related-entities" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-the-package-compute-panchanga-and-related-entities">What does the package compute? (Panchanga and related entities)</h2>
+<p>The paper discusses <strong>Panchanga</strong> (“five arms”), which consists of:</p>
+<ol type="1">
+<li><strong>Tithi</strong> — a lunar day (related to the lunar phase)</li>
 <li><strong>Vaara</strong> — weekday</li>
 <li><strong>Nakshatra</strong> — constellation segment based on the moon’s position</li>
 <li><strong>Yoga</strong> — derived from sun + moon longitudes</li>
 <li><strong>Karana</strong> — half-tithi</li>
-</ul>
-<p>The package also includes additional related entities and utilities (see <a href="./reference.html">Reference</a>), such as:</p>
-<ul>
-<li>sunrise/sunset, moonrise/moonset</li>
-<li>solar/lunar longitudes</li>
-<li>rashi, lagna, masa, ritu, samvatsara</li>
-<li>Gregorian ↔︎ Julian day conversion helpers</li>
-</ul>
+</ol>
+<p>In addition, the package includes related entities and helpers such as <strong>rashi</strong>, <strong>lagna</strong>, <strong>masa</strong>, <strong>ritu</strong>, <strong>samvatsara</strong>, <strong>sunrise/sunset</strong>, <strong>moonrise/moonset</strong>, solar/lunar longitudes, and conversions between <strong>Gregorian</strong> dates and <strong>Julian day numbers</strong>.</p>
 </section>
-<section id="why-a-lunisolar-calendar" class="level2">
-<h2 class="anchored" data-anchor-id="why-a-lunisolar-calendar">Why a lunisolar calendar?</h2>
-<p>Calendar systems can be <strong>solar</strong>, <strong>lunar</strong>, or <strong>lunisolar</strong>. The Gregorian calendar is a solar calendar and serves as a modern standard. However, Vedic calendars are lunisolar and can be useful when the analysis depends on the dynamics of both the sun and the moon.</p>
-<p>The VedicDateTime paper motivates use in <strong>calendar seasonality</strong> and <strong>moving-holiday effects</strong> (e.g., festivals whose timing shifts under the Gregorian calendar).</p>
-</section>
-<section id="quick-example-from-the-paper" class="level2">
-<h2 class="anchored" data-anchor-id="quick-example-from-the-paper">Quick example (from the paper)</h2>
-<p>Below is an example shown in the package paper (note: code is displayed; it is not executed when building this site).</p>
+<section id="quick-examples-from-the-paper" class="level2">
+<h2 class="anchored" data-anchor-id="quick-examples-from-the-paper">Quick examples (from the paper)</h2>
+<p>These examples are shown in the package paper. (This website is configured to <em>display</em> code but <strong>not execute it</strong> while building pages.)</p>
+<section id="example-1-tithi" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-tithi">Example 1: tithi()</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Julian day number</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>jd <span class="ot">&lt;-</span> <span class="dv">2459778</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -242,20 +277,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tithi</span>(jd, place)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 55 35</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Interpretation (as explained in the paper):</p>
+<p>Interpretation described in the paper:</p>
 <ul>
-<li>The first number is the <strong>tithi index</strong> (there are 30 tithis).</li>
-<li>The remaining values indicate the <strong>ending time</strong> (hour, minute, second) for that tithi.</li>
+<li>the first number is the <strong>tithi index</strong> (there are 30 tithis)</li>
+<li>the remaining numbers represent the <strong>ending time</strong> as <code>hour minute second</code></li>
 </ul>
 </section>
-<section id="scope-and-outputs" class="level2">
-<h2 class="anchored" data-anchor-id="scope-and-outputs">Scope and outputs</h2>
-<p>Many functions return compact numeric vectors that include:</p>
+<section id="example-2-vaara-and-names" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-vaara-and-names">Example 2: vaara() and names</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vaara</span>(<span class="dv">2459778</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_vaara_name</span>(<span class="dv">2459778</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Ravivar"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-3-nakshatra" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-nakshatra">Example 3: nakshatra()</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nakshatra</span>(<span class="dv">2459778</span>, <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 25 24 24  1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The paper explains this as nakshatra index + ending time.</p>
+</section>
+</section>
+<section id="typical-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="typical-workflow">Typical workflow</h2>
+<p>A typical workflow in the paper is:</p>
+<ol type="1">
+<li>Start with a Gregorian date-time (or directly a Julian day number)</li>
+<li>Choose a <strong>place</strong> (latitude, longitude, timezone)</li>
+<li>Compute one or more Panchanga entities</li>
+<li>Optionally map numeric indices to names (e.g., <code>get_vaara_name()</code>)</li>
+</ol>
+<p>See <a href="./getting-started.html">Getting started</a> for a step-by-step guide.</p>
+</section>
+<section id="research-and-applications" class="level2">
+<h2 class="anchored" data-anchor-id="research-and-applications">Research and applications</h2>
+<p>The paper includes two demonstrations showing how VedicDateTime can be used in practice:</p>
 <ul>
-<li>an <strong>index</strong> (e.g., which tithi/nakshatra/yoga)</li>
-<li>the <strong>end time</strong> for the current entity (hour/minute/second)</li>
+<li><strong>Seasonality analysis</strong> on India’s Index of Industrial Production (IIP)</li>
+<li><strong>Diwali regressors</strong> to model moving-holiday effects pre/post Diwali</li>
 </ul>
-<p>In some situations, <strong>two entities can occur on one date</strong>, and the output may include both (e.g., two tithis with their end times). The paper also notes handling of skipped/leap cases.</p>
+<p>See <a href="./articles.html">Tutorials &amp; case studies</a>.</p>
 </section>
 <section id="citation" class="level2">
 <h2 class="anchored" data-anchor-id="citation">Citation</h2>
@@ -263,14 +324,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p>Bokde, N. D., Patil, P. K., Sengupta, S., Sawant, M., &amp; Feijóo-Lorenzo, A. E. (2023). <em>VedicDateTime: An R package to implement Vedic calendar system</em>. Multimedia Tools and Applications. https://doi.org/10.1007/s11042-023-16553-w</p>
 </blockquote>
-</section>
-<section id="links-add-your-real-urls" class="level2">
-<h2 class="anchored" data-anchor-id="links-add-your-real-urls">Links (add your real URLs)</h2>
-<ul>
-<li>GitHub repository: <code>TODO</code></li>
-<li>CRAN package page: <code>TODO</code></li>
-<li>Issues / support: <code>TODO</code></li>
-</ul>
 
 
 </section>
@@ -349,7 +402,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/vedicdatetime\.org");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -691,12 +744,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./about.html">
-<p>License: GPL-3</p>
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime">
+<p>CRAN</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime">
+<p>GitHub</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./publications.html">
+<p>Publication</p>
 </a>
   </li>  
 </ul>

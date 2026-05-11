@@ -2,32 +2,54 @@
 title: "Reference"
 ---
 
-This page summarizes the main functions described in the VedicDateTime paper. Function names below reflect the paper’s Tables and listings.
+This page is a practical, human-readable guide to the main functions described in the VedicDateTime paper and commonly used in the package.
 
-> Note: Argument details may vary by package version; treat this page as a high-level guide and prefer `?function_name` in R for authoritative help.
+For definitive documentation, always check:
 
-## Core pattern
-
-Many functions follow the pattern:
-
-- Input:
-  - `jd` — Julian Day Number
-  - `place` — numeric vector: `c(latitude, longitude, timezone)`
-- Output:
-  - an index (which entity)
-  - ending time as `(hour, minute, second)`
-
-The paper shows this output style for **tithi**, **nakshatra**, **yoga**, etc.
+- CRAN: https://cran.r-project.org/package=VedicDateTime
+- Function help in R: `?tithi`, `?nakshatra`, etc.
 
 ---
 
-## Panchanga: five core entities
+## Core inputs & return style
 
-### `tithi()` / `tithis()`
+### Inputs
 
-**Purpose:** compute the tithi (lunar day) at sunrise and its end time; may return two tithis in special cases.
+Many functions in the paper use:
 
-Paper example:
+- `jd`: **Julian Day Number**
+- `place`: numeric vector `c(latitude, longitude, timezone_offset)`
+
+Example place:
+
+```r
+place <- c(15.34, 75.13, +5.5)
+```
+
+### Returns
+
+Several functions return numeric vectors that include:
+
+- an index (which tithi / nakshatra / yoga)
+- an end time encoded as `hour minute second`
+
+The paper notes that times beyond 24:00 indicate after midnight (next day).
+
+---
+
+## Panchanga (five arms)
+
+### 1) tithi()
+
+**Meaning:** lunar day (based on lunar phase).
+
+**Paper summary of computation:**
+
+- compute lunar phase from difference between lunar and solar longitudes at sunrise
+- determine the tithi by dividing by 12
+- compute end time via inverse Lagrange interpolation using longitudes at 0.25-day offsets
+
+**Example from the paper:**
 
 ```r
 jd <- 2459778
@@ -37,15 +59,19 @@ tithi(jd, place)
 #> [1] 20 20 55 35
 ```
 
-Related helper:
+Helpers:
 
-- `get_tithi_name()` — map tithi number to name.
+- `get_tithi_name()` — tithi number → name
 
-### `vaara()` / `vaaras()`
+Related:
 
-**Purpose:** Vedic weekday.
+- `tithis()` — compute multiple tithis across time (see package help)
 
-Paper examples:
+### 2) vaara()
+
+**Meaning:** weekday.
+
+**Paper examples:**
 
 ```r
 vaara(2459778)
@@ -55,39 +81,49 @@ get_vaara_name(2459778)
 #> [1] "Ravivar"
 ```
 
-### `nakshatra()` / `nakshatras()`
+Related:
 
-**Purpose:** compute nakshatra from the moon’s sidereal longitude.
+- `vaaras()`
 
-Notes from the paper:
+### 3) nakshatra()
 
-- uses **Lahiri Ayanamsa**
-- sunrise/time calculations via **Swiss Ephemeris**
-- end times via **Inverse Lagrange interpolation** with **0.25 day offsets**
+**Meaning:** constellation segment based on the moon’s position.
 
-Example:
+**Paper notes:** uses Lahiri Ayanamsa and sunrise from Swiss Ephemeris; end times via inverse Lagrange interpolation with 0.25-day offsets.
+
+**Example from the paper:**
 
 ```r
 nakshatra(2459778, c(15.34, 75.13, +5.5))
 #> [1] 25 24 24  1
 ```
 
-### `yoga()` / `yogas()`
+Related:
 
-**Purpose:** 27 yogas derived from sun and moon longitudes (segment size 13°20′).
+- `get_nakshatra_name()`
+- `nakshatras()`
 
-Example:
+### 4) yoga()
+
+**Meaning:** 27 yogas (each 13°20′), based on sun + moon sidereal longitudes.
+
+**Example from the paper:**
 
 ```r
 yoga(2459778, c(15.34, 75.13, +5.5))
 #> [1]  5 27 26 12
 ```
 
-### `karana()` / `karanas()`
+Related:
 
-**Purpose:** half-tithi (recurring + fixed karanas).
+- `get_yoga_name()`
+- `yogas()`
 
-Example:
+### 5) karana()
+
+**Meaning:** half-tithi; the paper notes recurring and fixed karanas.
+
+**Example from the paper:**
 
 ```r
 karana(2459778, c(15.34, 75.13, +5.5))
@@ -97,45 +133,40 @@ get_karana_name(39, 40)
 #> [1] "Kaulava-Taitila"
 ```
 
----
+Related:
 
-## Additional calendar entities and astronomy helpers
-
-The paper lists additional functions (Table of functions). Commonly used ones include:
-
-### Sun/Moon events
-
-- `sunrise()` / `sunset()`
-- `moonrise()` / `moonset()`
-
-### Longitudes and derived quantities
-
-- `sun_longitude()`
-- `moon_longitude()`
-- `lunar_phase()`
-
-### Zodiac / seasonal entities
-
-- `rashi()` / `rashis()`
-- `lagna()`
-- `masa()` / `masas()`
-- `ritu()` / `ritus()`
-- `samvatsara()` / `samvatsars()`
-
-### New moon
-
-- `new_moon()`
+- `karanas()`
 
 ---
 
-## Conversions
+## Additional calendar entities (from the paper’s function table)
 
-- `gregorian_to_jd()` — Gregorian date to Julian day
-- `jd_to_gregorian()` — Julian day to Gregorian date
+These functions support broader calendrical and time-series feature engineering workflows.
 
----
+### Zodiac / signs
 
-## Utility functions
+- `rashi()` and `get_rashi_name()` — moon sign on the zodiac
+- `lagna()` and `get_lagna_name()` — sun sign on the zodiac
+
+### Months / seasons / years
+
+- `masa()` and `get_masa_name()` — lunar month
+- `ritu()` and `get_ritu_name()` — season (6 ritus)
+- `samvatsara()` and `get_samvatsara_name()` — 60-year cycle name
+
+### Astronomical quantities & events
+
+- `sun_longitude()` — solar longitude
+- `moon_longitude()` — lunar longitude
+- `sunrise()` / `sunset()` — sunrise/sunset for date + place
+- `moonrise()` / `moonset()` — moonrise/moonset for date + place
+
+### Conversions
+
+- `gregorian_to_jd()` — Gregorian date → JD (paper notes 00:00 UTC)
+- `jd_to_gregorian()` — JD → Gregorian
+
+### Utilities
 
 - `to_dms()`
 - `unwrap_angles()`
@@ -143,6 +174,6 @@ The paper lists additional functions (Table of functions). Commonly used ones in
 
 ---
 
-## Recommended: add pkgdown for full API docs
+## Want a fully auto-generated reference?
 
-For a “maximum information” function reference, you can generate a **pkgdown** site directly from roxygen documentation. If you want, I can set up pkgdown + GitHub Actions so your reference stays automatically up to date.
+If you want the website to contain a complete function index and argument tables automatically, the standard R approach is to publish a **pkgdown** site. We can integrate pkgdown output into this site or publish it alongside it.

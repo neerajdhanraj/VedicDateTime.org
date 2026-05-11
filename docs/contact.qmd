@@ -1,0 +1,20 @@
+---
+title: "Contact"
+---
+
+## Maintainer
+
+- Email: [neerajdhanraj@gmail.com](mailto:neerajdhanraj@gmail.com)
+
+## Support / Questions
+
+For questions, bug reports, and feature requests, the preferred channel is GitHub Issues:
+
+- https://github.com/neerajdhanraj/VedicDateTime/issues
+
+## Links
+
+- Website: https://vedicdatetime.org
+- CRAN: https://cran.r-project.org/package=VedicDateTime
+- GitHub: https://github.com/neerajdhanraj/VedicDateTime
+- Paper: https://doi.org/10.1007/s11042-023-16553-w

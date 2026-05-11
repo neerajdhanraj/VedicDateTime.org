@@ -2,13 +2,48 @@
 title: "About"
 ---
 
-## Overview
+## What is VedicDateTime?
 
-**VedicDateTime** is an R package that implements key components of the **Vedic calendar system** (lunisolar) and provides conversions from **Gregorian date-time** or **Julian Day Number** to Vedic calendar entities.
+**VedicDateTime** is an R package for computing entities from the **Vedic (lunisolar) calendar system** and converting between **Gregorian** time and Vedic calendar entities.
 
-The package is presented in the paper:
+The package is described in the open-access paper:
 
-> Bokde, N. D., Patil, P. K., Sengupta, S., Sawant, M., & Feijóo-Lorenzo, A. E. (2023). *VedicDateTime: An R package to implement Vedic calendar system*. Multimedia Tools and Applications. https://doi.org/10.1007/s11042-023-16553-w
+- https://doi.org/10.1007/s11042-023-16553-w
+
+Project links:
+
+- CRAN: https://cran.r-project.org/package=VedicDateTime
+- GitHub: https://github.com/neerajdhanraj/VedicDateTime
+- Website: https://vedicdatetime.org
+
+## What’s inside (high level)
+
+From the paper, VedicDateTime implements the five key Panchanga entities:
+
+- tithi
+- vaara
+- nakshatra
+- yoga
+- karana
+
+…and also provides a broader set of helper functions for related entities such as rashi/lagna/masa/ritu/samvatsara and sunrise/sunset/moonrise/moonset.
+
+## Implementation notes (paper summary)
+
+The paper describes algorithmic design choices including:
+
+- computations anchored to **local sunrise** (location-dependent)
+- Lahiri Ayanamsa for sidereal corrections
+- use of Swiss Ephemeris (via R dependencies) for astronomical computations
+- inverse Lagrange interpolation (with 0.25-day offsets) to compute end times
+
+## License
+
+VedicDateTime is distributed under **GPL-3** (as stated in the paper and in CRAN metadata).
+
+## Funding acknowledgement
+
+Early development of this package was funded through **Google Summer of Code (GSoC)** in multiple years.
 
 ## Authors (paper)
 
@@ -16,39 +51,18 @@ The package is presented in the paper:
 - Prajwal Kailasnath Patil
 - Saradindu Sengupta
 - Manisha Sawant
-- Andrés E. Feijóo-Lorenzo
-
-## What the package includes (paper summary)
-
-- Panchanga entities: **tithi**, **vaara**, **nakshatra**, **yoga**, **karana**
-- Conversions between **Gregorian dates** and **Julian day numbers**
-- Additional functions such as sunrise/sunset, moonrise/moonset, solar/lunar longitudes, and derived entities like rashi/masa/ritu/samvatsara
-
-## Implementation notes (from the paper)
-
-The paper describes algorithmic elements such as:
-
-- Calculations anchored to **sunrise** for a specified location
-- Use of **Lahiri Ayanamsa** (sidereal correction)
-- Use of **Swiss Ephemeris** (via R dependencies) for astronomical quantities
-- Determining end times using **Inverse Lagrange interpolation** with **0.25 day offsets**
+- Andrés E. Feijóo‑Lorenzo
 
 ## Limitations & future scope (as stated in the paper)
 
-The paper notes planned improvements including:
+The paper notes future improvements such as:
 
-- Adding **visualization capabilities** for calendar entities
-- Creating native **R date-time class (S4) support** for Vedic date-time objects
+- adding **visualization capabilities** for calendar entities
+- adding native **R date-time object support** (e.g., S4 classes) for Vedic date-time handling
 
-(If you have already implemented some of these, update this section to reflect the current status.)
+If you are using VedicDateTime for research, we recommend recording:
 
-## License
+- package version
+- location & timezone assumptions
+- input time conventions
 
-The paper states the package is released under **GPL-3**. Confirm against your package `DESCRIPTION`/`LICENSE`.
-
-## Links (fill in)
-
-- GitHub repository: `TODO`
-- CRAN package page: `TODO`
-- Issue tracker: `TODO`
-- Contact: `TODO`

@@ -68,6 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./assets/VedicDateTimeLOGO2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -117,6 +118,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">VedicDateTime</span>
     </a>
@@ -141,18 +146,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./articles.html"> 
-<span class="menu-text">Articles</span></a>
+<span class="menu-text">Tutorials &amp; case studies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./changelog.html"> 
-<span class="menu-text">Changelog</span></a>
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Publication</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="./faq.html"> 
+<span class="menu-text">FAQ</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime"> 
+<span class="menu-text">CRAN</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -169,27 +191,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a>
+  <li><a href="#install-the-package" id="toc-install-the-package" class="nav-link active" data-scroll-target="#install-the-package">Install the package</a>
   <ul class="collapse">
   <li><a href="#install-from-cran-recommended" id="toc-install-from-cran-recommended" class="nav-link" data-scroll-target="#install-from-cran-recommended">Install from CRAN (recommended)</a></li>
-  <li><a href="#install-the-development-version-from-github" id="toc-install-the-development-version-from-github" class="nav-link" data-scroll-target="#install-the-development-version-from-github">Install the development version from GitHub</a></li>
+  <li><a href="#install-from-github-development-version" id="toc-install-from-github-development-version" class="nav-link" data-scroll-target="#install-from-github-development-version">Install from GitHub (development version)</a></li>
   </ul></li>
-  <li><a href="#key-inputs-time-place" id="toc-key-inputs-time-place" class="nav-link" data-scroll-target="#key-inputs-time-place">Key inputs: time + place</a>
+  <li><a href="#the-key-idea-compute-vedic-entities-for-a-time-place" id="toc-the-key-idea-compute-vedic-entities-for-a-time-place" class="nav-link" data-scroll-target="#the-key-idea-compute-vedic-entities-for-a-time-place">The key idea: compute Vedic entities for a time + place</a></li>
+  <li><a href="#step-1-start-from-a-julian-day-number" id="toc-step-1-start-from-a-julian-day-number" class="nav-link" data-scroll-target="#step-1-start-from-a-julian-day-number">Step 1 — Start from a Julian Day Number</a>
   <ul class="collapse">
-  <li><a href="#convert-gregorian-date-julian-day" id="toc-convert-gregorian-date-julian-day" class="nav-link" data-scroll-target="#convert-gregorian-date-julian-day">Convert Gregorian date → Julian day</a></li>
+  <li><a href="#option-a-you-already-have-a-jd" id="toc-option-a-you-already-have-a-jd" class="nav-link" data-scroll-target="#option-a-you-already-have-a-jd">Option A: you already have a JD</a></li>
+  <li><a href="#option-b-convert-a-gregorian-date-to-jd" id="toc-option-b-convert-a-gregorian-date-to-jd" class="nav-link" data-scroll-target="#option-b-convert-a-gregorian-date-to-jd">Option B: convert a Gregorian date to JD</a></li>
   </ul></li>
-  <li><a href="#your-first-panchanga-computation" id="toc-your-first-panchanga-computation" class="nav-link" data-scroll-target="#your-first-panchanga-computation">Your first Panchanga computation</a>
+  <li><a href="#step-2-compute-panchanga-five-arms" id="toc-step-2-compute-panchanga-five-arms" class="nav-link" data-scroll-target="#step-2-compute-panchanga-five-arms">Step 2 — Compute Panchanga (five arms)</a>
   <ul class="collapse">
-  <li><a href="#tithi" id="toc-tithi" class="nav-link" data-scroll-target="#tithi">1) Tithi</a></li>
-  <li><a href="#vaara-weekday" id="toc-vaara-weekday" class="nav-link" data-scroll-target="#vaara-weekday">2) Vaara (weekday)</a></li>
-  <li><a href="#nakshatra" id="toc-nakshatra" class="nav-link" data-scroll-target="#nakshatra">3) Nakshatra</a></li>
-  <li><a href="#yoga" id="toc-yoga" class="nav-link" data-scroll-target="#yoga">4) Yoga</a></li>
-  <li><a href="#karana" id="toc-karana" class="nav-link" data-scroll-target="#karana">5) Karana</a></li>
+  <li><a href="#tithi" id="toc-tithi" class="nav-link" data-scroll-target="#tithi">2.1 tithi()</a></li>
+  <li><a href="#vaara" id="toc-vaara" class="nav-link" data-scroll-target="#vaara">2.2 vaara()</a></li>
+  <li><a href="#nakshatra" id="toc-nakshatra" class="nav-link" data-scroll-target="#nakshatra">2.3 nakshatra()</a></li>
+  <li><a href="#yoga" id="toc-yoga" class="nav-link" data-scroll-target="#yoga">2.4 yoga()</a></li>
+  <li><a href="#karana" id="toc-karana" class="nav-link" data-scroll-target="#karana">2.5 karana()</a></li>
   </ul></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common mistakes</a></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  <li><a href="#step-3-explore-additional-functions" id="toc-step-3-explore-additional-functions" class="nav-link" data-scroll-target="#step-3-explore-additional-functions">Step 3 — Explore additional functions</a></li>
+  <li><a href="#practical-tips" id="toc-practical-tips" class="nav-link" data-scroll-target="#practical-tips">Practical tips</a>
+  <ul class="collapse">
+  <li><a href="#record-inputs-for-reproducibility" id="toc-record-inputs-for-reproducibility" class="nav-link" data-scroll-target="#record-inputs-for-reproducibility">Record inputs for reproducibility</a></li>
+  <li><a href="#understand-times-beyond-2400" id="toc-understand-times-beyond-2400" class="nav-link" data-scroll-target="#understand-times-beyond-2400">Understand times beyond 24:00</a></li>
+  </ul></li>
+  <li><a href="#next" id="toc-next" class="nav-link" data-scroll-target="#next">Next</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -213,120 +242,158 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<section id="install-the-package" class="level2">
+<h2 class="anchored" data-anchor-id="install-the-package">Install the package</h2>
 <section id="install-from-cran-recommended" class="level3">
 <h3 class="anchored" data-anchor-id="install-from-cran-recommended">Install from CRAN (recommended)</h3>
-<p>If VedicDateTime is available on CRAN, install with:</p>
+<p>VedicDateTime is available on CRAN:</p>
+<ul>
+<li>https://cran.r-project.org/package=VedicDateTime</li>
+</ul>
+<p>Install it in R:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"VedicDateTime"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Load the package:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VedicDateTime)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="install-the-development-version-from-github" class="level3">
-<h3 class="anchored" data-anchor-id="install-the-development-version-from-github">Install the development version from GitHub</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"&lt;OWNER&gt;/&lt;REPO&gt;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Replace <code>&lt;OWNER&gt;/&lt;REPO&gt;</code> with your GitHub repository.</p>
+<section id="install-from-github-development-version" class="level3">
+<h3 class="anchored" data-anchor-id="install-from-github-development-version">Install from GitHub (development version)</h3>
+<p>If you want the latest development version:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"neerajdhanraj/VedicDateTime"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
-<section id="key-inputs-time-place" class="level2">
-<h2 class="anchored" data-anchor-id="key-inputs-time-place">Key inputs: time + place</h2>
-<p>Most VedicDateTime computations use:</p>
-<ol type="1">
-<li><strong>A date</strong> expressed as a <strong>Julian Day Number</strong> (JD)</li>
-<li>A <strong>place vector</strong> containing:
+<section id="the-key-idea-compute-vedic-entities-for-a-time-place" class="level2">
+<h2 class="anchored" data-anchor-id="the-key-idea-compute-vedic-entities-for-a-time-place">The key idea: compute Vedic entities for a time + place</h2>
+<p>Many Vedic calendar computations depend on <strong>location</strong> (because several entities are defined relative to <strong>local sunrise</strong>). In the package paper, most core functions use:</p>
 <ul>
-<li>latitude</li>
-<li>longitude</li>
-<li>timezone offset</li>
-</ul></li>
-</ol>
-<p>This is stated repeatedly in the paper examples (e.g., <code>place &lt;- c(15.34, 75.13, +5.5)</code>).</p>
-<section id="convert-gregorian-date-julian-day" class="level3">
-<h3 class="anchored" data-anchor-id="convert-gregorian-date-julian-day">Convert Gregorian date → Julian day</h3>
-<p>The paper describes <code>gregorian_to_jd()</code> as the helper to convert a Gregorian date to a Julian day.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example (paper shows this pattern)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># jd &lt;- gregorian_to_jd(day, month, year)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<li><code>jd</code>: a <strong>Julian Day Number</strong> (JD)</li>
+<li><code>place</code>: a numeric vector with <strong>latitude, longitude, timezone offset</strong></li>
+</ul>
+<p>Example place vector shown in the paper:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="step-1-start-from-a-julian-day-number" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-start-from-a-julian-day-number">Step 1 — Start from a Julian Day Number</h2>
+<section id="option-a-you-already-have-a-jd" class="level3">
+<h3 class="anchored" data-anchor-id="option-a-you-already-have-a-jd">Option A: you already have a JD</h3>
+<p>If your analysis already uses Julian days, you can directly call the functions.</p>
+</section>
+<section id="option-b-convert-a-gregorian-date-to-jd" class="level3">
+<h3 class="anchored" data-anchor-id="option-b-convert-a-gregorian-date-to-jd">Option B: convert a Gregorian date to JD</h3>
+<p>The paper describes <code>gregorian_to_jd()</code> as the conversion helper. The paper also notes it converts to Julian day number at <strong>00:00 UTC</strong>.</p>
+<p>Example pattern (shown in the paper):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>jd <span class="ot">&lt;-</span> <span class="fu">gregorian_to_jd</span>(<span class="dv">17</span>, <span class="dv">6</span>, <span class="dv">2022</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<blockquote class="blockquote">
+<p>Tip: Always record the timezone convention you are using in your analysis.</p>
+</blockquote>
 <hr>
 </section>
 </section>
-<section id="your-first-panchanga-computation" class="level2">
-<h2 class="anchored" data-anchor-id="your-first-panchanga-computation">Your first Panchanga computation</h2>
+<section id="step-2-compute-panchanga-five-arms" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-compute-panchanga-five-arms">Step 2 — Compute Panchanga (five arms)</h2>
+<p>The <strong>Panchanga</strong> consists of: <strong>tithi, vaara, nakshatra, yoga, karana</strong>.</p>
 <section id="tithi" class="level3">
-<h3 class="anchored" data-anchor-id="tithi">1) Tithi</h3>
-<p>From the paper:</p>
+<h3 class="anchored" data-anchor-id="tithi">2.1 tithi()</h3>
+<p>What the paper says:</p>
 <ul>
-<li><code>tithi(jd, place)</code> calculates the <strong>tithi</strong> for a given Julian day and place.</li>
-<li>It determines the tithi at <strong>sunrise</strong>, based on the difference between <strong>lunar and solar longitudes</strong> divided by 12.</li>
-<li>The ending time is computed using <strong>Inverse Lagrange interpolation</strong> using longitudes at <strong>0.25 day intervals</strong> from sunrise.</li>
+<li>The tithi at <strong>sunrise</strong> is determined by the difference between <strong>lunar</strong> and <strong>solar</strong> longitudes divided by 12.</li>
+<li>The fractional part indicates remaining degrees to the next tithi.</li>
+<li>Ending time is computed using <strong>Inverse Lagrange interpolation</strong> with longitudes at <strong>0.25 day intervals</strong> from sunrise.</li>
 </ul>
-<p>Example (from the paper):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>jd <span class="ot">&lt;-</span> <span class="dv">2459778</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tithi</span>(jd, place)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 55 35</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>What the output means:</p>
-<ul>
-<li>first value = tithi index (1..30)</li>
-<li>next three values = end time (hour, minute, second)</li>
-</ul>
-<p>If you see times beyond <code>24:00</code>, it indicates a time <strong>past midnight</strong> (next day), as explained in the paper.</p>
-</section>
-<section id="vaara-weekday" class="level3">
-<h3 class="anchored" data-anchor-id="vaara-weekday">2) Vaara (weekday)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vaara</span>(<span class="dv">2459778</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_vaara_name</span>(<span class="dv">2459778</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Ravivar"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="nakshatra" class="level3">
-<h3 class="anchored" data-anchor-id="nakshatra">3) Nakshatra</h3>
-<p>From the paper, <code>nakshatra()</code> is computed from the moon’s position:</p>
-<ul>
-<li>moon’s <strong>sidereal (Nirayana) longitude</strong> is found by subtracting <strong>Ayanamsa</strong> from tropical longitude</li>
-<li>the paper states the package uses <strong>Lahiri Ayanamsa</strong> and obtains sunrise via <strong>Swiss Ephemeris</strong></li>
-<li>end times use <strong>Inverse Lagrange interpolation</strong> with <strong>0.25 day offsets</strong></li>
-</ul>
-<p>Example output shown:</p>
+<p>Example (paper Listing):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>jd <span class="ot">&lt;-</span> <span class="dv">2459778</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nakshatra</span>(jd, place)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 25 24 24  1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The paper explains this as nakshatra index + ending time.</p>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tithi</span>(jd, place)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20 20 55 35</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Interpretation (paper):</p>
+<ul>
+<li><code>20</code> is the tithi index (30 tithis total). The paper’s example indicates this corresponds to <em>Krishna Paksha Panchami</em>.</li>
+<li><code>20 55 35</code> indicates end time (20h 55m 35s).</li>
+</ul>
+<p>Sometimes, two tithis can occur on a given date, and in special cases a tithi can be skipped; the paper describes how such cases are handled.</p>
+<p>To get a name from a number:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get_tithi_name(jd, place)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="vaara" class="level3">
+<h3 class="anchored" data-anchor-id="vaara">2.2 vaara()</h3>
+<p>Vaara is the weekday (7 in a week). The paper shows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vaara</span>(<span class="dv">2459778</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_vaara_name</span>(<span class="dv">2459778</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Ravivar"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">get_vaara_name</span>(<span class="fu">gregorian_to_jd</span>(<span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2022</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Shanivar"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="nakshatra" class="level3">
+<h3 class="anchored" data-anchor-id="nakshatra">2.3 nakshatra()</h3>
+<p>From the paper, <code>nakshatra()</code> is computed using the moon’s position:</p>
+<ul>
+<li>compute the moon’s <strong>sidereal (Nirayana) longitude</strong> by subtracting <strong>Ayanamsa</strong> from tropical longitude</li>
+<li>the paper states the package uses <strong>Lahiri Ayanamsa</strong></li>
+<li>sunrise is obtained using <strong>Swiss Ephemeris</strong></li>
+<li>end times use <strong>Inverse Lagrange interpolation</strong> with <strong>0.25 day offsets</strong></li>
+</ul>
+<p>Example (paper Listing):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nakshatra</span>(<span class="dv">2459778</span>, <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 25 24 24  1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The paper explains: <code>25</code> corresponds to <em>Purvabhadrapada</em>, and <code>24 24 1</code> indicates end time (24:24:01 → after midnight).</p>
 </section>
 <section id="yoga" class="level3">
-<h3 class="anchored" data-anchor-id="yoga">4) Yoga</h3>
-<p>The paper notes 27 yogas, calculated from sun and moon longitudes, using a 13°20′ segment size.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yoga</span>(<span class="dv">2459778</span>, <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  5 27 26 12</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 class="anchored" data-anchor-id="yoga">2.4 yoga()</h3>
+<p>The paper notes 27 Yogas (each 13°20′ of arc). Yoga is the sum of the sidereal longitudes of the sun and moon.</p>
+<p>Example (paper Listing):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yoga</span>(<span class="dv">2459778</span>, <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  5 27 26 12</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="karana" class="level3">
-<h3 class="anchored" data-anchor-id="karana">5) Karana</h3>
-<p>The paper describes karana as half-tithi and notes both “fixed” and “recurring” karanas.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">karana</span>(<span class="dv">2459778</span>, <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 39 40</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_karana_name</span>(<span class="dv">39</span>, <span class="dv">40</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Kaulava-Taitila"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 class="anchored" data-anchor-id="karana">2.5 karana()</h3>
+<p>The paper describes karana as half of a tithi (moon traverses 6° relative to the sun). There are 60 half‑tithis in a lunar month.</p>
+<p>Example (paper Listing):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">karana</span>(<span class="dv">2459778</span>, <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 39 40</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_karana_name</span>(<span class="dv">39</span>, <span class="dv">40</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "Kaulava-Taitila"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
-<section id="common-mistakes" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes">Common mistakes</h2>
+<section id="step-3-explore-additional-functions" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-explore-additional-functions">Step 3 — Explore additional functions</h2>
+<p>The paper lists additional functions (see <a href="./reference.html">Reference</a>), including:</p>
 <ul>
-<li><strong>Package not installed</strong>: if you see <code>there is no package called 'VedicDateTime'</code>, install from CRAN (or GitHub) before running <code>library(VedicDateTime)</code>.</li>
-<li><strong>Website builds failing</strong>: this website is configured to <strong>not execute</strong> code chunks during rendering (so examples can be shown even if the package is not installed).</li>
-<li><strong>Timezone mismatch</strong>: use the correct timezone offset for the chosen latitude/longitude.</li>
+<li><code>sunrise()</code>, <code>sunset()</code>, <code>moonrise()</code>, <code>moonset()</code></li>
+<li><code>sun_longitude()</code>, <code>moon_longitude()</code></li>
+<li><code>rashi()</code>, <code>lagna()</code>, <code>masa()</code>, <code>ritu()</code>, <code>samvatsara()</code></li>
 </ul>
 <hr>
 </section>
-<section id="next-steps" class="level2">
-<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<section id="practical-tips" class="level2">
+<h2 class="anchored" data-anchor-id="practical-tips">Practical tips</h2>
+<section id="record-inputs-for-reproducibility" class="level3">
+<h3 class="anchored" data-anchor-id="record-inputs-for-reproducibility">Record inputs for reproducibility</h3>
+<p>For reproducible results, always record:</p>
 <ul>
-<li>Browse the full API list on the <a href="./reference.html">Reference</a> page.</li>
-<li>Add your own vignettes/tutorials under <a href="./articles.html">Articles</a>.</li>
+<li>package version</li>
+<li>your timezone convention</li>
+<li>latitude/longitude/timezone used</li>
+</ul>
+</section>
+<section id="understand-times-beyond-2400" class="level3">
+<h3 class="anchored" data-anchor-id="understand-times-beyond-2400">Understand times beyond 24:00</h3>
+<p>The paper notes: if output timings exceed 24:00, they indicate a time past midnight (next day).</p>
+<hr>
+</section>
+</section>
+<section id="next" class="level2">
+<h2 class="anchored" data-anchor-id="next">Next</h2>
+<ul>
+<li>Browse the API list: <a href="./reference.html">Reference</a></li>
+<li>See applied workflows: <a href="./articles.html">Tutorials &amp; case studies</a></li>
+<li>Read the paper: <a href="./publications.html">Publication</a></li>
 </ul>
 
 
@@ -406,7 +473,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/vedicdatetime\.org");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -748,12 +815,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./about.html">
-<p>License: GPL-3</p>
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime">
+<p>CRAN</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime">
+<p>GitHub</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./publications.html">
+<p>Publication</p>
 </a>
   </li>  
 </ul>

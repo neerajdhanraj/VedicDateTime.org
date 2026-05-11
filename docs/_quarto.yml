@@ -4,10 +4,14 @@ project:
 
 website:
   title: "VedicDateTime"
-  description: "An R package to implement the Vedic (lunisolar) calendar system and convert Gregorian/Julian dates to Vedic calendar entities."
-  site-url: ""   # optional; set after you have the final GitHub Pages URL or custom domain
-  repo-url: ""   # TODO: set GitHub repo URL
+  description: "An R package to implement the Vedic (lunisolar) calendar system and convert Gregorian/Julian dates to Vedic calendar entities (Panchanga)."
+  site-url: "https://vedicdatetime.org"
+  repo-url: "https://github.com/neerajdhanraj/VedicDateTime"
+  repo-actions: [issue]
+  favicon: "assets/VedicDateTimeLOGO2.png"
+
   navbar:
+    logo: "assets/VedicDateTimeLOGO2.png"
     left:
       - href: index.qmd
         text: Home
@@ -16,19 +20,30 @@ website:
       - href: reference.qmd
         text: Reference
       - href: articles.qmd
-        text: Articles
-      - href: changelog.qmd
-        text: Changelog
-      - href: about.qmd
-        text: About
+        text: Tutorials & case studies
+      - href: publications.qmd
+        text: Publication
+      - href: faq.qmd
+        text: FAQ
+      - href: contributing.qmd
+        text: Contributing
+      - href: contact.qmd
+        text: Contact
     right:
+      - text: CRAN
+        href: "https://cran.r-project.org/package=VedicDateTime"
       - icon: github
-        href: ""   # TODO: set GitHub repo URL
+        href: "https://github.com/neerajdhanraj/VedicDateTime"
+
   page-footer:
     left: "© {year} VedicDateTime contributors"
     right:
-      - text: "License: GPL-3"
-        href: about.qmd
+      - text: "CRAN"
+        href: "https://cran.r-project.org/package=VedicDateTime"
+      - text: "GitHub"
+        href: "https://github.com/neerajdhanraj/VedicDateTime"
+      - text: "Publication"
+        href: publications.qmd
 
 format:
   html:
@@ -36,6 +51,7 @@ format:
     css: styles.css
     toc: true
     code-copy: true
+    anchor-sections: true
     link-external-icon: true
     link-external-newwindow: true
 

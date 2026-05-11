@@ -1,0 +1,61 @@
+---
+title: "FAQ"
+---
+
+## What is VedicDateTime?
+
+VedicDateTime is an R package that implements core entities from the **Vedic (lunisolar) calendar** and helps convert **Gregorian date-time** (or **Julian Day Number**) into Vedic calendar entities such as **tithi, vaara, nakshatra, yoga,** and **karana**.
+
+## Do I need to know astronomy to use it?
+
+No. Most users only provide:
+
+- a date (Gregorian or Julian day)
+- a location (latitude/longitude)
+- a timezone offset
+
+The package uses established astronomical calculations internally (as described in the paper).
+
+## Why do many functions require a “place” (lat/long/timezone)?
+
+Because several Vedic calendar entities are defined relative to **local sunrise** and depend on the observer’s location. Therefore, the same Julian day can correspond to different Panchanga values at different places.
+
+## Why do some outputs show times greater than 24:00?
+
+The package examples in the paper note that if an ending time exceeds 24:00, it indicates a time **past midnight** (i.e., on the next Gregorian day).
+
+## Why do I sometimes get two tithis (or a skipped tithi)?
+
+The paper explains that sometimes two tithis occur within a single civil date and that the next day’s tithi can be checked to detect skipped/leap cases. In such cases, the function may return multiple entity/end-time pairs.
+
+## Is it on CRAN?
+
+Yes:
+
+- https://cran.r-project.org/package=VedicDateTime
+
+## Where is the source code?
+
+- GitHub: https://github.com/neerajdhanraj/VedicDateTime
+
+## How do I report a bug or request a feature?
+
+Please open a GitHub Issue:
+
+- https://github.com/neerajdhanraj/VedicDateTime/issues
+
+Include:
+
+- the exact function call
+- your input date(s)
+- place (lat, long, timezone)
+- your R session info (`sessionInfo()`)
+
+## How accurate are results?
+
+The package uses well-established astronomical computations and is described in a peer-reviewed paper. For strict reproducibility, always record:
+
+- package version
+- timezone / location
+- input dates and coordinate conventions
+

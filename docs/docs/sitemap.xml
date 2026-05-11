@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/reference.html</loc>
-    <lastmod>2026-05-10T10:42:29.724Z</lastmod>
+    <loc>https://vedicdatetime.org/reference.html</loc>
+    <lastmod>2026-05-11T06:28:23.109Z</lastmod>
   </url>
   <url>
-    <loc>/index.html</loc>
-    <lastmod>2026-05-10T10:41:53.007Z</lastmod>
+    <loc>https://vedicdatetime.org/publications.html</loc>
+    <lastmod>2026-05-11T06:26:42.899Z</lastmod>
   </url>
   <url>
-    <loc>/changelog.html</loc>
-    <lastmod>2026-05-10T10:42:58.956Z</lastmod>
+    <loc>https://vedicdatetime.org/getting-started.html</loc>
+    <lastmod>2026-05-11T06:28:03.758Z</lastmod>
   </url>
   <url>
-    <loc>/about.html</loc>
-    <lastmod>2026-05-10T10:42:52.988Z</lastmod>
+    <loc>https://vedicdatetime.org/contributing.html</loc>
+    <lastmod>2026-05-11T06:27:03.957Z</lastmod>
   </url>
   <url>
-    <loc>/articles.html</loc>
-    <lastmod>2026-05-10T10:42:43.355Z</lastmod>
+    <loc>https://vedicdatetime.org/changelog.html</loc>
+    <lastmod>2026-05-11T06:28:52.811Z</lastmod>
   </url>
   <url>
-    <loc>/getting-started.html</loc>
-    <lastmod>2026-05-10T10:42:10.321Z</lastmod>
+    <loc>https://vedicdatetime.org/about.html</loc>
+    <lastmod>2026-05-11T06:28:48.247Z</lastmod>
   </url>
   <url>
-    <loc>/README-site.html</loc>
+    <loc>https://vedicdatetime.org/articles.html</loc>
+    <lastmod>2026-05-11T06:28:37.901Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vedicdatetime.org/contact.html</loc>
+    <lastmod>2026-05-11T06:27:08.928Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vedicdatetime.org/faq.html</loc>
+    <lastmod>2026-05-11T06:26:53.618Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vedicdatetime.org/index.html</loc>
+    <lastmod>2026-05-11T06:27:39.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vedicdatetime.org/README-site.html</loc>
     <lastmod>2026-05-07T11:44:02.034Z</lastmod>
   </url>
 </urlset>

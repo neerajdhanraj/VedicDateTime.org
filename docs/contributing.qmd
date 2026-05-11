@@ -1,0 +1,42 @@
+---
+title: "Contributing"
+---
+
+## Ways to contribute
+
+Contributions are welcome—both from R users and from researchers interested in calendrical/time-series applications.
+
+You can contribute by:
+
+- Reporting bugs (with reproducible examples)
+- Improving documentation and examples
+- Adding tests
+- Adding new calendar entities / helper functions
+- Creating vignettes that demonstrate real analyses
+
+## Where to contribute
+
+- GitHub repository: https://github.com/neerajdhanraj/VedicDateTime
+- Issues: https://github.com/neerajdhanraj/VedicDateTime/issues
+
+## Reporting a bug (checklist)
+
+Please include:
+
+1. What you expected to happen
+2. What actually happened
+3. A minimal reproducible example (code + inputs)
+4. Location inputs: latitude, longitude, timezone offset
+5. Output of `sessionInfo()`
+
+## Development principles
+
+- Keep computations reproducible (explicit timezone/location)
+- Prefer clear return formats and documented units
+- Add tests for edge cases (skipped/leap entities, midnight-crossing end times)
+
+## Acknowledgements / Funding
+
+Early development of this package was funded through **Google Summer of Code (GSoC)** in multiple years.
+
+(If you would like, we can add a dedicated “Funding” section listing the exact years/organizations once confirmed.)

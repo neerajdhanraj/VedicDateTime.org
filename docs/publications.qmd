@@ -1,0 +1,31 @@
+---
+title: "Publication"
+---
+
+## Peer-reviewed paper (open access)
+
+The VedicDateTime package is described in the following peer‑reviewed paper:
+
+**VedicDateTime: An R package to implement Vedic calendar system**  
+Neeraj Dhanraj Bokde, Prajwal Kailasnath Patil, Saradindu Sengupta, Manisha Sawant, Andrés E. Feijóo‑Lorenzo  
+*Multimedia Tools and Applications* (2023)
+
+- Springer page: https://link.springer.com/article/10.1007/s11042-023-16553-w
+- DOI: https://doi.org/10.1007/s11042-023-16553-w
+
+## How to cite
+
+```text
+Bokde, N. D., Patil, P. K., Sengupta, S., Sawant, M., & Feijóo-Lorenzo, A. E. (2023).
+VedicDateTime: An R package to implement Vedic calendar system.
+Multimedia Tools and Applications.
+https://doi.org/10.1007/s11042-023-16553-w
+```
+
+## Read the paper (embedded PDF)
+
+If your browser does not show the PDF below, you can open it directly:
+
+- [Download / open PDF](papers/VedicDateTime-paper.pdf)
+
+<iframe src="papers/VedicDateTime-paper.pdf" width="100%" height="900" style="border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;"></iframe>

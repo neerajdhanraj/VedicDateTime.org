@@ -19,5 +19,17 @@
   },
   "reference.qmd": {
     "reference.html": "e858b0ab"
+  },
+  "contact.qmd": {
+    "contact.html": "c9f2566d"
+  },
+  "contributing.qmd": {
+    "contributing.html": "8c540811"
+  },
+  "faq.qmd": {
+    "faq.html": "5c45ad3b"
+  },
+  "publications.qmd": {
+    "publications.html": "a15f0388"
   }
 }

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – VedicDateTime</title>
+<title>Publication – VedicDateTime</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -114,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Tutorials &amp; case studies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
+    <a class="nav-link active" href="./publications.html" aria-current="page"> 
 <span class="menu-text">Publication</span></a>
   </li>  
   <li class="nav-item">
@@ -156,13 +156,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-vedicdatetime" id="toc-what-is-vedicdatetime" class="nav-link active" data-scroll-target="#what-is-vedicdatetime">What is VedicDateTime?</a></li>
-  <li><a href="#whats-inside-high-level" id="toc-whats-inside-high-level" class="nav-link" data-scroll-target="#whats-inside-high-level">What’s inside (high level)</a></li>
-  <li><a href="#implementation-notes-paper-summary" id="toc-implementation-notes-paper-summary" class="nav-link" data-scroll-target="#implementation-notes-paper-summary">Implementation notes (paper summary)</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  <li><a href="#funding-acknowledgement" id="toc-funding-acknowledgement" class="nav-link" data-scroll-target="#funding-acknowledgement">Funding acknowledgement</a></li>
-  <li><a href="#authors-paper" id="toc-authors-paper" class="nav-link" data-scroll-target="#authors-paper">Authors (paper)</a></li>
-  <li><a href="#limitations-future-scope-as-stated-in-the-paper" id="toc-limitations-future-scope-as-stated-in-the-paper" class="nav-link" data-scroll-target="#limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</a></li>
+  <li><a href="#peer-reviewed-paper-open-access" id="toc-peer-reviewed-paper-open-access" class="nav-link active" data-scroll-target="#peer-reviewed-paper-open-access">Peer-reviewed paper (open access)</a></li>
+  <li><a href="#how-to-cite" id="toc-how-to-cite" class="nav-link" data-scroll-target="#how-to-cite">How to cite</a></li>
+  <li><a href="#read-the-paper-embedded-pdf" id="toc-read-the-paper-embedded-pdf" class="nav-link" data-scroll-target="#read-the-paper-embedded-pdf">Read the paper (embedded PDF)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -171,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Publication</h1>
 </div>
 
 
@@ -188,73 +184,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-is-vedicdatetime" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-vedicdatetime">What is VedicDateTime?</h2>
-<p><strong>VedicDateTime</strong> is an R package for computing entities from the <strong>Vedic (lunisolar) calendar system</strong> and converting between <strong>Gregorian</strong> time and Vedic calendar entities.</p>
-<p>The package is described in the open-access paper:</p>
+<section id="peer-reviewed-paper-open-access" class="level2">
+<h2 class="anchored" data-anchor-id="peer-reviewed-paper-open-access">Peer-reviewed paper (open access)</h2>
+<p>The VedicDateTime package is described in the following peer‑reviewed paper:</p>
+<p><strong>VedicDateTime: An R package to implement Vedic calendar system</strong><br>
+Neeraj Dhanraj Bokde, Prajwal Kailasnath Patil, Saradindu Sengupta, Manisha Sawant, Andrés E. Feijóo‑Lorenzo<br>
+<em>Multimedia Tools and Applications</em> (2023)</p>
 <ul>
-<li>https://doi.org/10.1007/s11042-023-16553-w</li>
-</ul>
-<p>Project links:</p>
-<ul>
-<li>CRAN: https://cran.r-project.org/package=VedicDateTime</li>
-<li>GitHub: https://github.com/neerajdhanraj/VedicDateTime</li>
-<li>Website: https://vedicdatetime.org</li>
+<li>Springer page: https://link.springer.com/article/10.1007/s11042-023-16553-w</li>
+<li>DOI: https://doi.org/10.1007/s11042-023-16553-w</li>
 </ul>
 </section>
-<section id="whats-inside-high-level" class="level2">
-<h2 class="anchored" data-anchor-id="whats-inside-high-level">What’s inside (high level)</h2>
-<p>From the paper, VedicDateTime implements the five key Panchanga entities:</p>
-<ul>
-<li>tithi</li>
-<li>vaara</li>
-<li>nakshatra</li>
-<li>yoga</li>
-<li>karana</li>
-</ul>
-<p>…and also provides a broader set of helper functions for related entities such as rashi/lagna/masa/ritu/samvatsara and sunrise/sunset/moonrise/moonset.</p>
+<section id="how-to-cite" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-cite">How to cite</h2>
+<pre class="text"><code>Bokde, N. D., Patil, P. K., Sengupta, S., Sawant, M., &amp; Feijóo-Lorenzo, A. E. (2023).
+VedicDateTime: An R package to implement Vedic calendar system.
+Multimedia Tools and Applications.
+https://doi.org/10.1007/s11042-023-16553-w</code></pre>
 </section>
-<section id="implementation-notes-paper-summary" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-notes-paper-summary">Implementation notes (paper summary)</h2>
-<p>The paper describes algorithmic design choices including:</p>
+<section id="read-the-paper-embedded-pdf" class="level2">
+<h2 class="anchored" data-anchor-id="read-the-paper-embedded-pdf">Read the paper (embedded PDF)</h2>
+<p>If your browser does not show the PDF below, you can open it directly:</p>
 <ul>
-<li>computations anchored to <strong>local sunrise</strong> (location-dependent)</li>
-<li>Lahiri Ayanamsa for sidereal corrections</li>
-<li>use of Swiss Ephemeris (via R dependencies) for astronomical computations</li>
-<li>inverse Lagrange interpolation (with 0.25-day offsets) to compute end times</li>
+<li><a href="papers/VedicDateTime-paper.pdf">Download / open PDF</a></li>
 </ul>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p>VedicDateTime is distributed under <strong>GPL-3</strong> (as stated in the paper and in CRAN metadata).</p>
-</section>
-<section id="funding-acknowledgement" class="level2">
-<h2 class="anchored" data-anchor-id="funding-acknowledgement">Funding acknowledgement</h2>
-<p>Early development of this package was funded through <strong>Google Summer of Code (GSoC)</strong> in multiple years.</p>
-</section>
-<section id="authors-paper" class="level2">
-<h2 class="anchored" data-anchor-id="authors-paper">Authors (paper)</h2>
-<ul>
-<li>Neeraj Dhanraj Bokde</li>
-<li>Prajwal Kailasnath Patil</li>
-<li>Saradindu Sengupta</li>
-<li>Manisha Sawant</li>
-<li>Andrés E. Feijóo‑Lorenzo</li>
-</ul>
-</section>
-<section id="limitations-future-scope-as-stated-in-the-paper" class="level2">
-<h2 class="anchored" data-anchor-id="limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</h2>
-<p>The paper notes future improvements such as:</p>
-<ul>
-<li>adding <strong>visualization capabilities</strong> for calendar entities</li>
-<li>adding native <strong>R date-time object support</strong> (e.g., S4 classes) for Vedic date-time handling</li>
-</ul>
-<p>If you are using VedicDateTime for research, we recommend recording:</p>
-<ul>
-<li>package version</li>
-<li>location &amp; timezone assumptions</li>
-<li>input time conventions</li>
-</ul>
+<iframe src="papers/VedicDateTime-paper.pdf" width="100%" height="900" style="border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;">
+</iframe>
 
 
 </section>

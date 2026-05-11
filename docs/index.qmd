@@ -1,47 +1,61 @@
 ---
 title: "VedicDateTime"
-subtitle: "An R package to implement the Vedic (lunisolar) calendar system"
+subtitle: "Vedic calendar (Panchanga) computations for R"
 ---
 
 ::: {.hero}
 
+![](assets/VedicDateTimeLOGO2.png){width=120}
+
+<div>
+
 # VedicDateTime
 
-**VedicDateTime** is an open-source R package that implements key components of the **Vedic calendar (lunisolar)** and provides conversions from **Gregorian date-time** (or **Julian Day Number**) to Vedic calendar entities.
+<p class="lead">
+An open-source R package to compute key entities from the <b>Vedic (lunisolar) calendar</b> and convert <b>Gregorian</b> dates (or <b>Julian Day Numbers</b>) into <b>Panchanga</b> components such as <b>tithi</b>, <b>vaara</b>, <b>nakshatra</b>, <b>yoga</b>, and <b>karana</b>.
+</p>
 
-The motivation is that many phenomena—especially in **time-series analysis**—can be influenced by both **solar** and **lunar** cycles. The package paper presents VedicDateTime and demonstrates two applied case studies using the package.
+**CRAN:** https://cran.r-project.org/package=VedicDateTime  
+**GitHub:** https://github.com/neerajdhanraj/VedicDateTime  
+**Paper:** https://doi.org/10.1007/s11042-023-16553-w
 
-[Get started](getting-started.qmd){.btn .btn-primary}
-[Reference](reference.qmd){.btn .btn-secondary}
+[Install & first steps](getting-started.qmd){.btn .btn-primary}
+[Browse functions](reference.qmd){.btn .btn-secondary}
+
+</div>
 
 :::
 
-## What does the package compute?
+![](assets/clipboard-2026-05-11_10-09-35.png){fig-alt="Screenshot"}
 
-VedicDateTime implements the core parts of **Panchanga** (“five arms” of the Vedic calendar):
+## Why VedicDateTime?
 
-- **Tithi** — lunar day (phase-based)
-- **Vaara** — weekday
-- **Nakshatra** — constellation segment based on the moon’s position
-- **Yoga** — derived from sun + moon longitudes
-- **Karana** — half-tithi
+Calendar systems used around the world can be **solar**, **lunar**, or **lunisolar**, based on movements of the sun, the moon, or both. The **Gregorian** calendar (solar) is commonly used as a modern time reference for computation.
 
-The package also includes additional related entities and utilities (see [Reference](reference.qmd)), such as:
+The **Vedic calendar** is **lunisolar**. The VedicDateTime paper motivates that a lunisolar calendar can be useful when analyzing activities and time series that may depend on both celestial bodies—especially when studying:
 
-- sunrise/sunset, moonrise/moonset
-- solar/lunar longitudes
-- rashi, lagna, masa, ritu, samvatsara
-- Gregorian ↔ Julian day conversion helpers
+- **calendar seasonality** (seasonal patterns tied to cultural and astronomical cycles)
+- **moving-holiday effects** (e.g., festivals whose Gregorian dates shift year to year)
 
-## Why a lunisolar calendar?
+VedicDateTime was designed to make these computations accessible as reliable, reproducible R functions.
 
-Calendar systems can be **solar**, **lunar**, or **lunisolar**. The Gregorian calendar is a solar calendar and serves as a modern standard. However, Vedic calendars are lunisolar and can be useful when the analysis depends on the dynamics of both the sun and the moon.
+## What does the package compute? (Panchanga and related entities)
 
-The VedicDateTime paper motivates use in **calendar seasonality** and **moving-holiday effects** (e.g., festivals whose timing shifts under the Gregorian calendar).
+The paper discusses **Panchanga** (“five arms”), which consists of:
 
-## Quick example (from the paper)
+1. **Tithi** — a lunar day (related to the lunar phase)
+2. **Vaara** — weekday
+3. **Nakshatra** — constellation segment based on the moon’s position
+4. **Yoga** — derived from sun + moon longitudes
+5. **Karana** — half-tithi
 
-Below is an example shown in the package paper (note: code is displayed; it is not executed when building this site).
+In addition, the package includes related entities and helpers such as **rashi**, **lagna**, **masa**, **ritu**, **samvatsara**, **sunrise/sunset**, **moonrise/moonset**, solar/lunar longitudes, and conversions between **Gregorian** dates and **Julian day numbers**.
+
+## Quick examples (from the paper)
+
+These examples are shown in the package paper. (This website is configured to *display* code but **not execute it** while building pages.)
+
+### Example 1: tithi()
 
 ```r
 # Julian day number
@@ -54,28 +68,52 @@ tithi(jd, place)
 #> [1] 20 20 55 35
 ```
 
-Interpretation (as explained in the paper):
+Interpretation described in the paper:
 
-- The first number is the **tithi index** (there are 30 tithis).
-- The remaining values indicate the **ending time** (hour, minute, second) for that tithi.
+- the first number is the **tithi index** (there are 30 tithis)
+- the remaining numbers represent the **ending time** as `hour minute second`
 
-## Scope and outputs
+### Example 2: vaara() and names
 
-Many functions return compact numeric vectors that include:
+```r
+vaara(2459778)
+#> [1] 1
 
-- an **index** (e.g., which tithi/nakshatra/yoga)
-- the **end time** for the current entity (hour/minute/second)
+get_vaara_name(2459778)
+#> [1] "Ravivar"
+```
 
-In some situations, **two entities can occur on one date**, and the output may include both (e.g., two tithis with their end times). The paper also notes handling of skipped/leap cases.
+### Example 3: nakshatra()
+
+```r
+nakshatra(2459778, c(15.34, 75.13, +5.5))
+#> [1] 25 24 24  1
+```
+
+The paper explains this as nakshatra index + ending time.
+
+## Typical workflow
+
+A typical workflow in the paper is:
+
+1. Start with a Gregorian date-time (or directly a Julian day number)
+2. Choose a **place** (latitude, longitude, timezone)
+3. Compute one or more Panchanga entities
+4. Optionally map numeric indices to names (e.g., `get_vaara_name()`)
+
+See [Getting started](getting-started.qmd) for a step-by-step guide.
+
+## Research and applications
+
+The paper includes two demonstrations showing how VedicDateTime can be used in practice:
+
+- **Seasonality analysis** on India’s Index of Industrial Production (IIP)
+- **Diwali regressors** to model moving-holiday effects pre/post Diwali
+
+See [Tutorials & case studies](articles.qmd).
 
 ## Citation
 
 If you use VedicDateTime in academic work, please cite:
 
 > Bokde, N. D., Patil, P. K., Sengupta, S., Sawant, M., & Feijóo-Lorenzo, A. E. (2023). *VedicDateTime: An R package to implement Vedic calendar system*. Multimedia Tools and Applications. https://doi.org/10.1007/s11042-023-16553-w
-
-## Links (add your real URLs)
-
-- GitHub repository: `TODO`
-- CRAN package page: `TODO`
-- Issues / support: `TODO`

@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./assets/VedicDateTimeLOGO2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,6 +83,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/VedicDateTimeLOGO2.png" alt="" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">VedicDateTime</span>
     </a>
@@ -106,18 +111,35 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./articles.html"> 
-<span class="menu-text">Articles</span></a>
+<span class="menu-text">Tutorials &amp; case studies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./changelog.html" aria-current="page"> 
-<span class="menu-text">Changelog</span></a>
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Publication</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="./faq.html"> 
+<span class="menu-text">FAQ</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime"> 
+<span class="menu-text">CRAN</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -134,11 +156,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-to-maintain-changes" id="toc-how-to-maintain-changes" class="nav-link active" data-scroll-target="#how-to-maintain-changes">How to maintain changes</a></li>
-  <li><a href="#version-note-paper" id="toc-version-note-paper" class="nav-link" data-scroll-target="#version-note-paper">Version note (paper)</a></li>
-  <li><a href="#links-fill-in" id="toc-links-fill-in" class="nav-link" data-scroll-target="#links-fill-in">Links (fill in)</a></li>
+  <li><a href="#releases" id="toc-releases" class="nav-link active" data-scroll-target="#releases">Releases</a></li>
+  <li><a href="#recommended-workflow" id="toc-recommended-workflow" class="nav-link" data-scroll-target="#recommended-workflow">Recommended workflow</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -162,24 +183,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="how-to-maintain-changes" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-maintain-changes">How to maintain changes</h2>
-<p>Recommended:</p>
+<section id="releases" class="level2">
+<h2 class="anchored" data-anchor-id="releases">Releases</h2>
+<p>VedicDateTime releases are tracked on CRAN and GitHub.</p>
 <ul>
-<li>Keep a <code>NEWS.md</code> file in the R package repo.</li>
-<li>Copy key entries here, or link directly to GitHub Releases.</li>
+<li>CRAN: https://cran.r-project.org/package=VedicDateTime</li>
+<li>GitHub releases: https://github.com/neerajdhanraj/VedicDateTime/releases</li>
 </ul>
 </section>
-<section id="version-note-paper" class="level2">
-<h2 class="anchored" data-anchor-id="version-note-paper">Version note (paper)</h2>
-<p>The paper includes a “current code version” note (verify the current version in your repository and CRAN page, and keep this page synchronized).</p>
-</section>
-<section id="links-fill-in" class="level2">
-<h2 class="anchored" data-anchor-id="links-fill-in">Links (fill in)</h2>
-<ul>
-<li>GitHub Releases: <code>TODO</code></li>
-<li>CRAN package history: <code>TODO</code></li>
-</ul>
+<section id="recommended-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-workflow">Recommended workflow</h2>
+<p>For a clean, complete website:</p>
+<ol type="1">
+<li>Maintain a <code>NEWS.md</code> file in the package repository</li>
+<li>Create GitHub Releases for tagged versions</li>
+<li>Keep this page short and point users to the authoritative history</li>
+</ol>
+<p>If you want, we can automatically pull <code>NEWS.md</code> into this website during the build.</p>
 
 
 </section>
@@ -258,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/vedicdatetime\.org");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -600,12 +620,22 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./about.html">
-<p>License: GPL-3</p>
+    <a class="nav-link" href="https://cran.r-project.org/package=VedicDateTime">
+<p>CRAN</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/neerajdhanraj/VedicDateTime">
+<p>GitHub</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./publications.html">
+<p>Publication</p>
 </a>
   </li>  
 </ul>
